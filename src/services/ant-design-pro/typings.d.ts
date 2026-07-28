@@ -98,4 +98,41 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+
+  type WorkOrderStatus = 'pending' | 'processing' | 'resolved' | 'closed';
+
+  type WorkOrderPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+  type WorkOrderListItem = {
+    id: string;
+    title: string;
+    status: WorkOrderStatus;
+    priority: WorkOrderPriority;
+    assignee: string;
+    reporter: string;
+    category: string;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    resolvedAt?: string;
+    callNo: number;
+  };
+
+  type WorkOrderListParams = {
+    current?: number;
+    pageSize?: number;
+    status?: WorkOrderStatus;
+    priority?: WorkOrderPriority;
+    startTime?: string;
+    endTime?: string;
+    keyword?: string;
+    sortField?: string;
+    sortOrder?: 'ascend' | 'descend';
+  };
+
+  type WorkOrderList = {
+    data: WorkOrderListItem[];
+    total: number;
+    success: boolean;
+  };
 }

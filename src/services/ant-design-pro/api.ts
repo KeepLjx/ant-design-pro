@@ -92,3 +92,45 @@ export async function removeRule(options?: { [key: string]: any }) {
     },
   });
 }
+
+/** 获取工单列表 GET /api/work-order */
+export async function getWorkOrderList(
+  params: API.WorkOrderListParams,
+  options?: Record<string, unknown>,
+) {
+  return request<API.WorkOrderList>('/api/work-order', {
+    method: 'GET',
+    params: { ...params },
+    ...(options || {}),
+  });
+}
+
+/** 删除工单 POST /api/work-order */
+export async function removeWorkOrder(
+  body: { ids: string[] },
+  options?: Record<string, unknown>,
+) {
+  return request<API.WorkOrderList>('/api/work-order', {
+    method: 'POST',
+    data: {
+      method: 'delete',
+      ...body,
+    },
+    ...(options || {}),
+  });
+}
+
+/** 更新工单状态 POST /api/work-order */
+export async function updateWorkOrderStatus(
+  body: { id: string; status: API.WorkOrderStatus },
+  options?: Record<string, unknown>,
+) {
+  return request<API.WorkOrderListItem>('/api/work-order', {
+    method: 'POST',
+    data: {
+      method: 'update',
+      ...body,
+    },
+    ...(options || {}),
+  });
+}

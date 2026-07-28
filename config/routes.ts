@@ -180,6 +180,12 @@ export default [
         path: '/list/card-list',
         component: './list/card-list',
       },
+      {
+        name: 'work-order',
+        icon: 'fileText',
+        path: '/list/work-order',
+        component: './work-order',
+      },
     ],
   },
   {
