@@ -92,3 +92,37 @@ export async function removeRule(options?: { [key: string]: any }) {
     },
   });
 }
+
+/** 获取工单列表 GET /api/tickets */
+export async function fetchTicketList(
+  params: API.TicketQueryParams,
+  options?: { [key: string]: any },
+) {
+  return request<API.TicketList>('/api/tickets', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** 删除单个工单 POST /api/ticket/delete */
+export async function deleteTicket(options?: { [key: string]: any }) {
+  return request<Record<string, any>>('/api/ticket/delete', {
+    method: 'POST',
+    data: {
+      ...(options || {}),
+    },
+  });
+}
+
+/** 批量删除工单 POST /api/tickets/batch-delete */
+export async function batchDeleteTickets(options?: { [key: string]: any }) {
+  return request<Record<string, any>>('/api/tickets/batch-delete', {
+    method: 'POST',
+    data: {
+      ...(options || {}),
+    },
+  });
+}

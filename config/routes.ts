@@ -163,10 +163,10 @@ export default [
         redirect: '/list/table-list',
       },
       {
-        name: 'table-list',
-        icon: 'table',
-        path: '/list/table-list',
-        component: './table-list',
+        name: 'ticket-list',
+        icon: 'solution',
+        path: '/list/ticket-list',
+        component: './ticket-list',
       },
       {
         name: 'basic-list',

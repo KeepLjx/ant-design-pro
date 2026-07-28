@@ -98,4 +98,33 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+
+  type TicketStatus = 'pending' | 'processing' | 'resolved' | 'closed';
+
+  type TicketPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+  type TicketListItem = {
+    id: number;
+    title: string;
+    status: TicketStatus;
+    priority: TicketPriority;
+    creator: string;
+    createdAt: string;
+    updatedAt: string;
+    description: string;
+  };
+
+  type TicketList = {
+    data: TicketListItem[];
+    total: number;
+    success: boolean;
+  };
+
+  type TicketQueryParams = {
+    current?: number;
+    pageSize?: number;
+    status?: TicketStatus;
+    priority?: TicketPriority;
+    createdAt?: [string, string];
+  };
 }
