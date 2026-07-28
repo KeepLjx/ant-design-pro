@@ -98,4 +98,41 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+
+  /** 工单状态 */
+  type WorkOrderStatus = 'pending' | 'processing' | 'resolved' | 'closed';
+
+  /** 工单优先级 */
+  type WorkOrderPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+  /** 工单条目 */
+  type WorkOrderItem = {
+    id: string;
+    title: string;
+    status: WorkOrderStatus;
+    priority: WorkOrderPriority;
+    creator: string;
+    assignee: string;
+    createdAt: string;
+    updatedAt: string;
+    description: string;
+  };
+
+  /** 工单列表响应 */
+  type WorkOrderList = {
+    data: WorkOrderItem[];
+    total: number;
+    success: boolean;
+  };
+
+  /** 工单查询参数 */
+  type WorkOrderParams = {
+    current?: number;
+    pageSize?: number;
+    status?: WorkOrderStatus;
+    priority?: WorkOrderPriority;
+    keyword?: string;
+    startTime?: string;
+    endTime?: string;
+  };
 }
