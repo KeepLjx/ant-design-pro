@@ -1,5 +1,4 @@
 import type {
-  ActionType,
   ProColumns,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-components';
@@ -9,42 +8,38 @@ import {
   ProDescriptions,
   ProTable,
 } from '@ant-design/pro-components';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FormattedMessage, useIntl } from '@umijs/max';
-import { Button, Drawer, type FormInstance, Input, message } from 'antd';
-import React, { useCallback, useRef, useState } from 'react';
+import { Button, Drawer, type FormInstance, Input } from 'antd';
+import React, { useCallback, useState } from 'react';
 import { removeRule, rule } from '@/services/ant-design-pro/api';
+import { useProTable } from '@/hooks/useProTable';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
 const TableList: React.FC = () => {
-  const actionRef = useRef<ActionType | null>(null);
-  const queryClient = useQueryClient();
-
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [currentRow, setCurrentRow] = useState<API.RuleListItem>();
-  const [selectedRowsState, setSelectedRows] = useState<API.RuleListItem[]>([]);
 
   /**
    * @en-US International configuration
-   * @zh-CN å›½é™…åŒ–é…ç½®
+   * @zh-CN ¹ú¼Ê»¯ÅäÖÃ
    * */
   const intl = useIntl();
 
-  const [messageApi, contextHolder] = message.useMessage();
-
-  const { mutate: delRun, isPending: loading } = useMutation({
-    mutationFn: removeRule,
-    onSuccess: () => {
-      setSelectedRows([]);
-      actionRef.current?.reloadAndRest?.();
-      queryClient.invalidateQueries({ queryKey: ['rule'] });
-
-      messageApi.success('Deleted successfully and will refresh soon');
-    },
-    onError: () => {
-      messageApi.error('Delete failed, please try again');
-    },
+  const {
+    actionRef,
+    contextHolder,
+    selectedRows,
+    setSelectedRows,
+    rowSelection,
+    messageApi,
+    deleteMutate: delRun,
+    deleteLoading: loading,
+  } = useProTable<API.RuleListItem>({
+    queryKey: 'rule',
+    deleteMutationFn: removeRule,
+    deleteSuccessMsg: 'Deleted successfully and will refresh soon',
+    deleteErrorMsg: 'Delete failed, please try again',
   });
 
   const columns: ProColumns<API.RuleListItem>[] = [
@@ -93,7 +88,7 @@ const TableList: React.FC = () => {
       renderText: (val: string) =>
         `${val}${intl.formatMessage({
           id: 'pages.searchTable.tenThousand',
-          defaultMessage: ' ä¸‡ ',
+          defaultMessage: ' Íò ',
         })}`,
     },
     {
@@ -219,14 +214,14 @@ const TableList: React.FC = () => {
 
   /**
    *  Delete node
-   * @zh-CN åˆ é™¤èŠ‚ç‚¹
+   * @zh-CN É¾³ý½Úµã
    *
    * @param selectedRows
    */
   const handleRemove = useCallback(
     async (selectedRows: API.RuleListItem[]) => {
       if (!selectedRows?.length) {
-        messageApi.warning('è¯·é€‰æ‹©åˆ é™¤é¡¹');
+        messageApi.warning('ÇëÑ¡ÔñÉ¾³ýÏî');
 
         return;
       }
@@ -258,13 +253,9 @@ const TableList: React.FC = () => {
         ]}
         request={rule}
         columns={columns}
-        rowSelection={{
-          onChange: (_, selectedRows) => {
-            setSelectedRows(selectedRows);
-          },
-        }}
+        rowSelection={rowSelection}
       />
-      {selectedRowsState?.length > 0 && (
+      {selectedRows?.length > 0 && (
         <FooterToolbar
           extra={
             <div>
@@ -273,11 +264,11 @@ const TableList: React.FC = () => {
                 defaultMessage="Chosen"
               />{' '}
               <span style={{ fontWeight: 600 }}>
-                {selectedRowsState.length}
+                {selectedRows.length}
               </span>{' '}
               <FormattedMessage
                 id="pages.searchTable.item"
-                defaultMessage="é¡¹"
+                defaultMessage="Ïî"
               />
               &nbsp;&nbsp;
               <span>
@@ -285,13 +276,13 @@ const TableList: React.FC = () => {
                   id="pages.searchTable.totalServiceCalls"
                   defaultMessage="Total number of service calls"
                 />{' '}
-                {selectedRowsState.reduce(
+                {selectedRows.reduce(
                   (pre, item) => pre + (item.callNo ?? 0),
                   0,
                 )}{' '}
                 <FormattedMessage
                   id="pages.searchTable.tenThousand"
-                  defaultMessage="ä¸‡"
+                  defaultMessage="Íò"
                 />
               </span>
             </div>
@@ -300,7 +291,7 @@ const TableList: React.FC = () => {
           <Button
             loading={loading}
             onClick={() => {
-              handleRemove(selectedRowsState);
+              handleRemove(selectedRows);
             }}
           >
             <FormattedMessage

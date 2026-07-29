@@ -1,17 +1,17 @@
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import {
   FooterToolbar,
   PageContainer,
   ProTable,
 } from '@ant-design/pro-components';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, message, Modal, Tag } from 'antd';
+import { Button, Modal, Tag } from 'antd';
 import { DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   getWorkOrderList,
   removeWorkOrder,
 } from '@/services/ant-design-pro/api';
+import { useProTable } from '@/hooks/useProTable';
 import useStyles from './style.style';
 
 const statusMap: Record<
@@ -35,25 +35,20 @@ const priorityMap: Record<
 };
 
 const WorkOrderList: React.FC = () => {
-  const actionRef = useRef<ActionType | null>(null);
-  const queryClient = useQueryClient();
   const { styles } = useStyles();
-  const [messageApi, contextHolder] = message.useMessage();
-  const [selectedRows, setSelectedRows] = useState<API.WorkOrderListItem[]>(
-    [],
-  );
 
-  const { mutate: doDelete, isPending: deleteLoading } = useMutation({
-    mutationFn: removeWorkOrder,
-    onSuccess: () => {
-      setSelectedRows([]);
-      actionRef.current?.reloadAndRest?.();
-      queryClient.invalidateQueries({ queryKey: ['work-order'] });
-      messageApi.success('…æ≥˝≥…π¶');
-    },
-    onError: () => {
-      messageApi.error('…æ≥˝ ß∞‹£¨«Î÷ÿ ‘');
-    },
+  const {
+    actionRef,
+    contextHolder,
+    selectedRows,
+    rowSelection,
+    deleteMutate: doDelete,
+    deleteLoading,
+  } = useProTable<API.WorkOrderListItem>({
+    queryKey: 'work-order',
+    deleteMutationFn: removeWorkOrder,
+    deleteSuccessMsg: '…æ≥˝≥…π¶',
+    deleteErrorMsg: '…æ≥˝ ß∞‹£¨«Î÷ÿ ‘',
   });
 
   const handleBatchDelete = () => {
@@ -223,14 +218,7 @@ const WorkOrderList: React.FC = () => {
           labelWidth: 'auto',
           defaultCollapsed: false,
         }}
-        rowSelection={{
-          onChange: (
-            _selectedRowKeys: React.Key[],
-            selectedRowsData: API.WorkOrderListItem[],
-          ) => {
-            setSelectedRows(selectedRowsData);
-          },
-        }}
+        rowSelection={rowSelection}
         request={async (params, sort) => {
           const sortEntries = Object.entries(sort).find(
             ([_key, order]) => order !== undefined,
