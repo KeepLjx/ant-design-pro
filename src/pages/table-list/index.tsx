@@ -1,5 +1,4 @@
 import type {
-  ActionType,
   ProColumns,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-components';
@@ -9,21 +8,28 @@ import {
   ProDescriptions,
   ProTable,
 } from '@ant-design/pro-components';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { FormattedMessage, useIntl } from '@umijs/max';
-import { Button, Drawer, type FormInstance, Input, message } from 'antd';
-import React, { useCallback, useRef, useState } from 'react';
+import { Button, Drawer, type FormInstance, Input } from 'antd';
+import React, { useCallback, useState } from 'react';
+import { useProTable } from '@/hooks/useProTable';
 import { removeRule, rule } from '@/services/ant-design-pro/api';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
 const TableList: React.FC = () => {
-  const actionRef = useRef<ActionType | null>(null);
-  const queryClient = useQueryClient();
+  const {
+    actionRef,
+    selectedRows: selectedRowsState,
+    messageApi,
+    contextHolder,
+    rowSelection,
+    onDeleteSuccess,
+    onDeleteError,
+  } = useProTable<API.RuleListItem>({ queryKey: 'rule' });
 
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [currentRow, setCurrentRow] = useState<API.RuleListItem>();
-  const [selectedRowsState, setSelectedRows] = useState<API.RuleListItem[]>([]);
 
   /**
    * @en-US International configuration
@@ -31,19 +37,13 @@ const TableList: React.FC = () => {
    * */
   const intl = useIntl();
 
-  const [messageApi, contextHolder] = message.useMessage();
-
   const { mutate: delRun, isPending: loading } = useMutation({
     mutationFn: removeRule,
     onSuccess: () => {
-      setSelectedRows([]);
-      actionRef.current?.reloadAndRest?.();
-      queryClient.invalidateQueries({ queryKey: ['rule'] });
-
-      messageApi.success('Deleted successfully and will refresh soon');
+      onDeleteSuccess('Deleted successfully and will refresh soon');
     },
     onError: () => {
-      messageApi.error('Delete failed, please try again');
+      onDeleteError('Delete failed, please try again');
     },
   });
 
@@ -258,11 +258,7 @@ const TableList: React.FC = () => {
         ]}
         request={rule}
         columns={columns}
-        rowSelection={{
-          onChange: (_, selectedRows) => {
-            setSelectedRows(selectedRows);
-          },
-        }}
+        rowSelection={rowSelection}
       />
       {selectedRowsState?.length > 0 && (
         <FooterToolbar

@@ -1,15 +1,16 @@
 import { ExclamationCircleFilled } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import {
   FooterToolbar,
   PageContainer,
   ProTable,
 } from '@ant-design/pro-components';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { FormattedMessage, useIntl } from '@umijs/max';
-import { Button, Modal, message, Popconfirm, Tag, Tooltip } from 'antd';
+import { Button, Modal, Popconfirm, Tag, Tooltip } from 'antd';
 import type { ReactNode } from 'react';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback } from 'react';
+import { useProTable } from '@/hooks/useProTable';
 import {
   batchDeleteTickets,
   deleteTicket,
@@ -31,30 +32,29 @@ const priorityColorMap: Record<API.TicketPriority, string> = {
 };
 
 const TableList: React.FC = () => {
-  const actionRef = useRef<ActionType | null>(null);
-  const queryClient = useQueryClient();
-  const intl = useIntl();
-  const [messageApi, contextHolder] = message.useMessage();
+  const {
+    actionRef,
+    selectedRows: selectedRowsState,
+    contextHolder,
+    rowSelection,
+    onDeleteSuccess,
+    onDeleteError,
+  } = useProTable<API.TicketListItem>({ queryKey: 'tickets' });
 
-  const [selectedRowsState, setSelectedRows] = useState<API.TicketListItem[]>(
-    [],
-  );
+  const intl = useIntl();
 
   const { mutate: delSingle, isPending: singleDeleting } = useMutation({
     mutationFn: deleteTicket,
     onSuccess: () => {
-      messageApi.success(
+      onDeleteSuccess(
         intl.formatMessage({
           id: 'pages.ticketList.deleteSuccess',
           defaultMessage: '删除成功',
         }),
       );
-      setSelectedRows([]);
-      actionRef.current?.reloadAndRest?.();
-      queryClient.invalidateQueries({ queryKey: ['tickets'] });
     },
     onError: () => {
-      messageApi.error(
+      onDeleteError(
         intl.formatMessage({
           id: 'pages.ticketList.deleteFailed',
           defaultMessage: '删除失败，请重试',
@@ -66,18 +66,15 @@ const TableList: React.FC = () => {
   const { mutate: delBatch, isPending: batchDeleting } = useMutation({
     mutationFn: batchDeleteTickets,
     onSuccess: () => {
-      messageApi.success(
+      onDeleteSuccess(
         intl.formatMessage({
           id: 'pages.ticketList.deleteSuccess',
           defaultMessage: '删除成功',
         }),
       );
-      setSelectedRows([]);
-      actionRef.current?.reloadAndRest?.();
-      queryClient.invalidateQueries({ queryKey: ['tickets'] });
     },
     onError: () => {
-      messageApi.error(
+      onDeleteError(
         intl.formatMessage({
           id: 'pages.ticketList.deleteFailed',
           defaultMessage: '删除失败，请重试',
@@ -375,7 +372,7 @@ const TableList: React.FC = () => {
         search={{
           labelWidth: 'auto',
         }}
-        request={async (params, sort) => {
+        request={async (params, _sort) => {
           const { current, pageSize, status, priority } = params;
           const queryParams: API.TicketQueryParams = {
             current,
@@ -389,11 +386,7 @@ const TableList: React.FC = () => {
           return fetchTicketList(queryParams);
         }}
         columns={columns}
-        rowSelection={{
-          onChange: (_, selectedRows: API.TicketListItem[]) => {
-            setSelectedRows(selectedRows);
-          },
-        }}
+        rowSelection={rowSelection}
       />
       {selectedRowsState.length > 0 && (
         <FooterToolbar
