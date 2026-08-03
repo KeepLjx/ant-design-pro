@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->
 <style>
-body { font-family: 'Î¢ÈíÑÅºÚ', 'ËÎÌå', SimSun, sans-serif; font-size: 14px; line-height: 1.8; margin: 40px; }
+body { font-family: 'å¾®è½¯é›…é»‘', 'å®‹ä½“', SimSun, sans-serif; font-size: 14px; line-height: 1.8; margin: 40px; }
 h1 { font-size: 22px; color: #1a1a1a; border-bottom: 2px solid #1677ff; padding-bottom: 8px; }
 h2 { font-size: 18px; color: #333; border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 24px; }
 h3 { font-size: 15px; color: #555; margin-top: 18px; }
@@ -19,70 +19,70 @@ pre { background-color: #f5f5f5; padding: 12px; border: 1px solid #ddd; white-sp
 </head>
 <body>
 
-<h1>¹¤µ¥ÁĞ±íÒ³£¨Work Order List£©- ÍêÕûÊµÏÖ¼ÇÂ¼</h1>
+<h1>å·¥å•åˆ—è¡¨é¡µï¼ˆWork Order Listï¼‰- å®Œæ•´å®ç°è®°å½•</h1>
 
 <div class="section">
-  <h2>Ò»¡¢ÓÃ»§ĞèÇóÔ­ÎÄ</h2>
-  <p>ÇëÄãÍê³ÉÒÔÏÂÈÎÎñ£¬²¢¸ø³ö¼ì²éµãºÍ¼ÇÂ¼Ö¸±êÊı¾İ£º</p>
-  <p>»ùÓÚÏîÄ¿ÏÖÓĞµÄ React + TypeScript ¼¼ÊõÕ»ºÍ×é¼ş¿â£¬ÊµÏÖÒ»¸ö¡¸¹¤µ¥ÁĞ±íÒ³¡¹£º</p>
+  <h2>ä¸€ã€ç”¨æˆ·éœ€æ±‚åŸæ–‡</h2>
+  <p>è¯·ä½ å®Œæˆä»¥ä¸‹ä»»åŠ¡ï¼Œå¹¶ç»™å‡ºæ£€æŸ¥ç‚¹å’Œè®°å½•æŒ‡æ ‡æ•°æ®ï¼š</p>
+  <p>åŸºäºé¡¹ç›®ç°æœ‰çš„ React + TypeScript æŠ€æœ¯æ ˆå’Œç»„ä»¶åº“ï¼Œå®ç°ä¸€ä¸ªã€Œå·¥å•åˆ—è¡¨é¡µã€ï¼š</p>
   <ol>
-    <li>Ö§³Ö¶àÌõ¼şÉ¸Ñ¡£¨×´Ì¬/ÓÅÏÈ¼¶/Ê±¼ä·¶Î§£©¡¢·ÖÒ³¡¢ÅÅĞò</li>
-    <li>±í¸ñÖ§³ÖÅúÁ¿²Ù×÷Óëµ¥Ìõ²Ù×÷£¬²Ù×÷Ğè¶ş´ÎÈ·ÈÏ</li>
-    <li>loading¡¢¿ÕÌ¬¡¢´íÎóÌ¬ÈıÖÖ×´Ì¬ÍêÕû</li>
-    <li>ÀàĞÍ¶¨ÒåÍêÕû£¬²»ÔÊĞíÊ¹ÓÃ any</li>
-    <li>ÑùÊ½¸´ÓÃÏîÄ¿Ö÷Ìâ±äÁ¿£¬²»ÒªÒıÈëĞÂµÄ×é¼ş¿â</li>
+    <li>æ”¯æŒå¤šæ¡ä»¶ç­›é€‰ï¼ˆçŠ¶æ€/ä¼˜å…ˆçº§/æ—¶é—´èŒƒå›´ï¼‰ã€åˆ†é¡µã€æ’åº</li>
+    <li>è¡¨æ ¼æ”¯æŒæ‰¹é‡æ“ä½œä¸å•æ¡æ“ä½œï¼Œæ“ä½œéœ€äºŒæ¬¡ç¡®è®¤</li>
+    <li>loadingã€ç©ºæ€ã€é”™è¯¯æ€ä¸‰ç§çŠ¶æ€å®Œæ•´</li>
+    <li>ç±»å‹å®šä¹‰å®Œæ•´ï¼Œä¸å…è®¸ä½¿ç”¨ any</li>
+    <li>æ ·å¼å¤ç”¨é¡¹ç›®ä¸»é¢˜å˜é‡ï¼Œä¸è¦å¼•å…¥æ–°çš„ç»„ä»¶åº“</li>
   </ol>
-  <p>ÑéÊÕ¼ì²éµã£º</p>
-  <p>¡õ npm run build Í¨¹ı¡¡¡õ tsc ÎŞ any ±¨¾¯¡¡¡õ É¸Ñ¡+·ÖÒ³+ÅÅĞò¾ù¿ÉÓÃ¡¡¡õ loading/¿ÕÌ¬/´íÎóÌ¬ÆëÈ«¡¡¡õ Î´ÒıÈëĞÂ×é¼ş¿â</p>
-  <p>¼ÇÂ¼Ö¸±ê£º¼ì²éµã¹ıÊı/5 ¡¤ ºÄÊ±min ¡¤ ÈË¹¤ĞŞ¸´ĞĞÊı(git diff --stat) ¡¤ ½éÈë´ÎÊı</p>
+  <p>éªŒæ”¶æ£€æŸ¥ç‚¹ï¼š</p>
+  <p>â–¡ npm run build é€šè¿‡ã€€â–¡ tsc æ—  any æŠ¥è­¦ã€€â–¡ ç­›é€‰+åˆ†é¡µ+æ’åºå‡å¯ç”¨ã€€â–¡ loading/ç©ºæ€/é”™è¯¯æ€é½å…¨ã€€â–¡ æœªå¼•å…¥æ–°ç»„ä»¶åº“</p>
+  <p>è®°å½•æŒ‡æ ‡ï¼šæ£€æŸ¥ç‚¹è¿‡æ•°/5 Â· è€—æ—¶min Â· äººå·¥ä¿®å¤è¡Œæ•°(git diff --stat) Â· ä»‹å…¥æ¬¡æ•°</p>
 </div>
 
 <div class="section">
-  <h2>¶ş¡¢ÏîÄ¿¼¼ÊõÕ»·ÖÎö</h2>
+  <h2>äºŒã€é¡¹ç›®æŠ€æœ¯æ ˆåˆ†æ</h2>
   <table>
-    <tr><th>¼¼Êõ</th><th>°æ±¾</th></tr>
+    <tr><th>æŠ€æœ¯</th><th>ç‰ˆæœ¬</th></tr>
     <tr><td>React</td><td>19.2.7</td></tr>
-    <tr><td>Umi Max£¨¹¹½¨¹¤¾ß£©</td><td>4.6.75</td></tr>
+    <tr><td>Umi Maxï¼ˆæ„å»ºå·¥å…·ï¼‰</td><td>4.6.75</td></tr>
     <tr><td>Ant Design</td><td>6.5.1</td></tr>
     <tr><td>@ant-design/pro-components</td><td>3.1.14-2</td></tr>
-    <tr><td>antd-style£¨Ö÷Ìâ£©</td><td>4.1.0</td></tr>
+    <tr><td>antd-styleï¼ˆä¸»é¢˜ï¼‰</td><td>4.1.0</td></tr>
     <tr><td>Tailwind CSS</td><td>4.3.2</td></tr>
     <tr><td>@tanstack/react-query</td><td>5.101.2</td></tr>
     <tr><td>TypeScript</td><td>7.0.2</td></tr>
-    <tr><td>Biome£¨´úÂë¼ì²é£©</td><td>2.5.3</td></tr>
-    <tr><td>Vitest£¨²âÊÔ£©</td><td>4.1.10</td></tr>
+    <tr><td>Biomeï¼ˆä»£ç æ£€æŸ¥ï¼‰</td><td>2.5.3</td></tr>
+    <tr><td>Vitestï¼ˆæµ‹è¯•ï¼‰</td><td>4.1.10</td></tr>
     <tr><td>Day.js</td><td>1.11.21</td></tr>
   </table>
 </div>
 
 <div class="section">
-  <h2>Èı¡¢ÊµÏÖ²½ÖèÏêÏ¸¼ÇÂ¼</h2>
+  <h2>ä¸‰ã€å®ç°æ­¥éª¤è¯¦ç»†è®°å½•</h2>
 
-  <h3>²½Öè 1£º·ÖÎöÏîÄ¿½á¹¹ºÍÏÖÓĞÄ£Ê½</h3>
-  <p>ÔÄ¶ÁÒÔÏÂÎÄ¼şÁË½âÏîÄ¿Ä£Ê½£º</p>
+  <h3>æ­¥éª¤ 1ï¼šåˆ†æé¡¹ç›®ç»“æ„å’Œç°æœ‰æ¨¡å¼</h3>
+  <p>é˜…è¯»ä»¥ä¸‹æ–‡ä»¶äº†è§£é¡¹ç›®æ¨¡å¼ï¼š</p>
   <ul>
-    <li><code>package.json</code> ¡ª È·ÈÏÒÀÀµ°æ±¾</li>
-    <li><code>src/pages/table-list/index.tsx</code> ¡ª ²Î¿¼ÏÖÓĞ ProTable ÁĞ±íÒ³ÊµÏÖÄ£Ê½</li>
-    <li><code>src/pages/table-list/components/UpdateForm.tsx</code> ¡ª ²Î¿¼±íµ¥µ¯´°Ä£Ê½</li>
-    <li><code>src/services/ant-design-pro/api.ts</code> ¡ª ²Î¿¼ API µ÷ÓÃÄ£Ê½</li>
-    <li><code>src/services/ant-design-pro/typings.d.ts</code> ¡ª ²Î¿¼ÀàĞÍ¶¨ÒåÄ£Ê½</li>
-    <li><code>config/routes.ts</code> ¡ª ²Î¿¼Â·ÓÉÅäÖÃÄ£Ê½</li>
-    <li><code>mock/listTableList.ts</code> ¡ª ²Î¿¼ Mock Êı¾İÄ£Ê½</li>
-    <li><code>src/global.style.ts</code> / <code>src/global.less</code> ¡ª ÁË½âÖ÷ÌâÑùÊ½</li>
-    <li><code>config/defaultSettings.ts</code> ¡ª ÁË½âÖ÷ÌâÅäÖÃ£¨colorPrimary: '#1677ff'£©</li>
-    <li><code>tsconfig.json</code> ¡ª È·ÈÏ TypeScript ÑÏ¸ñÄ£Ê½ÅäÖÃ</li>
+    <li><code>package.json</code> â€” ç¡®è®¤ä¾èµ–ç‰ˆæœ¬</li>
+    <li><code>src/pages/table-list/index.tsx</code> â€” å‚è€ƒç°æœ‰ ProTable åˆ—è¡¨é¡µå®ç°æ¨¡å¼</li>
+    <li><code>src/pages/table-list/components/UpdateForm.tsx</code> â€” å‚è€ƒè¡¨å•å¼¹çª—æ¨¡å¼</li>
+    <li><code>src/services/ant-design-pro/api.ts</code> â€” å‚è€ƒ API è°ƒç”¨æ¨¡å¼</li>
+    <li><code>src/services/ant-design-pro/typings.d.ts</code> â€” å‚è€ƒç±»å‹å®šä¹‰æ¨¡å¼</li>
+    <li><code>config/routes.ts</code> â€” å‚è€ƒè·¯ç”±é…ç½®æ¨¡å¼</li>
+    <li><code>mock/listTableList.ts</code> â€” å‚è€ƒ Mock æ•°æ®æ¨¡å¼</li>
+    <li><code>src/global.style.ts</code> / <code>src/global.less</code> â€” äº†è§£ä¸»é¢˜æ ·å¼</li>
+    <li><code>config/defaultSettings.ts</code> â€” äº†è§£ä¸»é¢˜é…ç½®ï¼ˆcolorPrimary: '#1677ff'ï¼‰</li>
+    <li><code>tsconfig.json</code> â€” ç¡®è®¤ TypeScript ä¸¥æ ¼æ¨¡å¼é…ç½®</li>
   </ul>
 
-  <h3>²½Öè 2£º¶¨Òå¹¤µ¥ÀàĞÍ£¨typings£©</h3>
-  <p>ÔÚ <code>src/services/ant-design-pro/typings.d.ts</code> µÄ API namespace ÖĞĞÂÔöÒÔÏÂÀàĞÍ¶¨Òå£º</p>
+  <h3>æ­¥éª¤ 2ï¼šå®šä¹‰å·¥å•ç±»å‹ï¼ˆtypingsï¼‰</h3>
+  <p>åœ¨ <code>src/services/ant-design-pro/typings.d.ts</code> çš„ API namespace ä¸­æ–°å¢ä»¥ä¸‹ç±»å‹å®šä¹‰ï¼š</p>
   <pre>
-/** ¹¤µ¥×´Ì¬ */
+/** å·¥å•çŠ¶æ€ */
 type WorkOrderStatus = 'pending' | 'processing' | 'resolved' | 'closed';
 
-/** ¹¤µ¥ÓÅÏÈ¼¶ */
+/** å·¥å•ä¼˜å…ˆçº§ */
 type WorkOrderPriority = 'low' | 'medium' | 'high' | 'urgent';
 
-/** ¹¤µ¥ÌõÄ¿ */
+/** å·¥å•æ¡ç›® */
 type WorkOrderItem = {
   id: string;
   title: string;
@@ -95,14 +95,14 @@ type WorkOrderItem = {
   description: string;
 };
 
-/** ¹¤µ¥ÁĞ±íÏìÓ¦ */
+/** å·¥å•åˆ—è¡¨å“åº” */
 type WorkOrderList = {
   data: WorkOrderItem[];
   total: number;
   success: boolean;
 };
 
-/** ¹¤µ¥²éÑ¯²ÎÊı */
+/** å·¥å•æŸ¥è¯¢å‚æ•° */
 type WorkOrderParams = {
   current?: number;
   pageSize?: number;
@@ -113,34 +113,34 @@ type WorkOrderParams = {
   endTime?: string;
 };</pre>
 
-  <h3>²½Öè 3£º´´½¨ API ·şÎñ</h3>
-  <p>ĞÂ½¨ÎÄ¼ş <code>src/services/ant-design-pro/workorder.ts</code>£¬°üº¬Èı¸ö API º¯Êı£º</p>
+  <h3>æ­¥éª¤ 3ï¼šåˆ›å»º API æœåŠ¡</h3>
+  <p>æ–°å»ºæ–‡ä»¶ <code>src/services/ant-design-pro/workorder.ts</code>ï¼ŒåŒ…å«ä¸‰ä¸ª API å‡½æ•°ï¼š</p>
   <ul>
-    <li><code>getWorkOrderList(params, options)</code> ¡ª GET /api/workorder£¬»ñÈ¡¹¤µ¥ÁĞ±í£¬Ö§³Ö·ÖÒ³/É¸Ñ¡/ÅÅĞò²ÎÊı</li>
-    <li><code>removeWorkOrders(params, options)</code> ¡ª POST /api/workorder (method: delete)£¬ÅúÁ¿É¾³ı¹¤µ¥</li>
-    <li><code>updateWorkOrderStatus(params, options)</code> ¡ª POST /api/workorder (method: update)£¬¸üĞÂµ¥Ìõ¹¤µ¥×´Ì¬</li>
+    <li><code>getWorkOrderList(params, options)</code> â€” GET /api/workorderï¼Œè·å–å·¥å•åˆ—è¡¨ï¼Œæ”¯æŒåˆ†é¡µ/ç­›é€‰/æ’åºå‚æ•°</li>
+    <li><code>removeWorkOrders(params, options)</code> â€” POST /api/workorder (method: delete)ï¼Œæ‰¹é‡åˆ é™¤å·¥å•</li>
+    <li><code>updateWorkOrderStatus(params, options)</code> â€” POST /api/workorder (method: update)ï¼Œæ›´æ–°å•æ¡å·¥å•çŠ¶æ€</li>
   </ul>
-  <p>×¢Òâ£ºËùÓĞ²ÎÊıÀàĞÍ¾ùÊ¹ÓÃ <code>API.WorkOrderStatus</code>¡¢<code>API.WorkOrderItem</code> µÈ¾ßÌåÀàĞÍ£¬ÎŞ any¡£</p>
+  <p>æ³¨æ„ï¼šæ‰€æœ‰å‚æ•°ç±»å‹å‡ä½¿ç”¨ <code>API.WorkOrderStatus</code>ã€<code>API.WorkOrderItem</code> ç­‰å…·ä½“ç±»å‹ï¼Œæ—  anyã€‚</p>
 
-  <h3>²½Öè 4£º´´½¨ Mock Êı¾İ</h3>
-  <p>ĞÂ½¨ÎÄ¼ş <code>mock/workorder.ts</code>£¬°üº¬£º</p>
+  <h3>æ­¥éª¤ 4ï¼šåˆ›å»º Mock æ•°æ®</h3>
+  <p>æ–°å»ºæ–‡ä»¶ <code>mock/workorder.ts</code>ï¼ŒåŒ…å«ï¼š</p>
   <ul>
-    <li>Éú³É 86 ÌõÄ£Äâ¹¤µ¥Êı¾İ£¨generateWorkOrders º¯Êı£©</li>
-    <li>GET /api/workorder ´¦ÀíÆ÷£ºÖ§³Ö×´Ì¬É¸Ñ¡¡¢ÓÅÏÈ¼¶É¸Ñ¡¡¢¹Ø¼ü×ÖËÑË÷£¨±êÌâ/´´½¨ÈË/´¦ÀíÈË£©¡¢Ê±¼ä·¶Î§É¸Ñ¡£¨startTime/endTime£©¡¢ÅÅĞò£¨sorter JSON ½âÎö£©</li>
-    <li>POST /api/workorder ´¦ÀíÆ÷£ºÖ§³Ö delete£¨°´ ids ÅúÁ¿É¾³ı£©ºÍ update£¨°´ id ¸üĞÂ status£©</li>
-    <li>×´Ì¬Ã¶¾Ù£ºpending£¨´ı´¦Àí£©¡¢processing£¨´¦ÀíÖĞ£©¡¢resolved£¨ÒÑ½â¾ö£©¡¢closed£¨ÒÑ¹Ø±Õ£©</li>
-    <li>ÓÅÏÈ¼¶Ã¶¾Ù£ºlow£¨µÍ£©¡¢medium£¨ÖĞ£©¡¢high£¨¸ß£©¡¢urgent£¨½ô¼±£©</li>
-    <li>´´½¨ÈËÁĞ±í£ºÕÅÈı¡¢ÀîËÄ¡¢ÍõÎå¡¢ÕÔÁù¡¢ËïÆß</li>
-    <li>´¦ÀíÈËÁĞ±í£º³Â¹¤¡¢Áõ¹¤¡¢ÖÜ¹¤¡¢Îâ¹¤¡¢Ö£¹¤</li>
-    <li>±êÌâÇ°×º£ºÏµÍ³¹ÊÕÏ¡¢ÍøÂçÒì³£¡¢ÕËºÅÎÊÌâ¡¢È¨ÏŞÉêÇë¡¢Êı¾İµ¼³ö¡¢Éè±¸±¨ĞŞ¡¢Èí¼ş°²×°¡¢ÃÜÂëÖØÖÃ</li>
+    <li>ç”Ÿæˆ 86 æ¡æ¨¡æ‹Ÿå·¥å•æ•°æ®ï¼ˆgenerateWorkOrders å‡½æ•°ï¼‰</li>
+    <li>GET /api/workorder å¤„ç†å™¨ï¼šæ”¯æŒçŠ¶æ€ç­›é€‰ã€ä¼˜å…ˆçº§ç­›é€‰ã€å…³é”®å­—æœç´¢ï¼ˆæ ‡é¢˜/åˆ›å»ºäºº/å¤„ç†äººï¼‰ã€æ—¶é—´èŒƒå›´ç­›é€‰ï¼ˆstartTime/endTimeï¼‰ã€æ’åºï¼ˆsorter JSON è§£æï¼‰</li>
+    <li>POST /api/workorder å¤„ç†å™¨ï¼šæ”¯æŒ deleteï¼ˆæŒ‰ ids æ‰¹é‡åˆ é™¤ï¼‰å’Œ updateï¼ˆæŒ‰ id æ›´æ–° statusï¼‰</li>
+    <li>çŠ¶æ€æšä¸¾ï¼špendingï¼ˆå¾…å¤„ç†ï¼‰ã€processingï¼ˆå¤„ç†ä¸­ï¼‰ã€resolvedï¼ˆå·²è§£å†³ï¼‰ã€closedï¼ˆå·²å…³é—­ï¼‰</li>
+    <li>ä¼˜å…ˆçº§æšä¸¾ï¼šlowï¼ˆä½ï¼‰ã€mediumï¼ˆä¸­ï¼‰ã€highï¼ˆé«˜ï¼‰ã€urgentï¼ˆç´§æ€¥ï¼‰</li>
+    <li>åˆ›å»ºäººåˆ—è¡¨ï¼šå¼ ä¸‰ã€æå››ã€ç‹äº”ã€èµµå…­ã€å­™ä¸ƒ</li>
+    <li>å¤„ç†äººåˆ—è¡¨ï¼šé™ˆå·¥ã€åˆ˜å·¥ã€å‘¨å·¥ã€å´å·¥ã€éƒ‘å·¥</li>
+    <li>æ ‡é¢˜å‰ç¼€ï¼šç³»ç»Ÿæ•…éšœã€ç½‘ç»œå¼‚å¸¸ã€è´¦å·é—®é¢˜ã€æƒé™ç”³è¯·ã€æ•°æ®å¯¼å‡ºã€è®¾å¤‡æŠ¥ä¿®ã€è½¯ä»¶å®‰è£…ã€å¯†ç é‡ç½®</li>
   </ul>
 
-  <h3>²½Öè 5£º´´½¨¹¤µ¥ÁĞ±íÒ³Ö÷×é¼ş</h3>
-  <p>ĞÂ½¨ÎÄ¼ş <code>src/pages/workorder/index.tsx</code>£¨456 ĞĞ£©£¬Ö÷Òª½á¹¹£º</p>
+  <h3>æ­¥éª¤ 5ï¼šåˆ›å»ºå·¥å•åˆ—è¡¨é¡µä¸»ç»„ä»¶</h3>
+  <p>æ–°å»ºæ–‡ä»¶ <code>src/pages/workorder/index.tsx</code>ï¼ˆ456 è¡Œï¼‰ï¼Œä¸»è¦ç»“æ„ï¼š</p>
 
-  <h4>5.1 ÑÕÉ«ÓëÎÄ°¸Ó³Éä³£Á¿</h4>
+  <h4>5.1 é¢œè‰²ä¸æ–‡æ¡ˆæ˜ å°„å¸¸é‡</h4>
   <pre>
-/** ×´Ì¬ÑÕÉ«Ó³Éä£º¸´ÓÃ antd Tag Ô¤ÉèÉ« */
+/** çŠ¶æ€é¢œè‰²æ˜ å°„ï¼šå¤ç”¨ antd Tag é¢„è®¾è‰² */
 const statusColorMap: Record&lt;API.WorkOrderStatus, string&gt; = {
   pending: 'default',
   processing: 'processing',
@@ -148,7 +148,7 @@ const statusColorMap: Record&lt;API.WorkOrderStatus, string&gt; = {
   closed: 'error',
 };
 
-/** ÓÅÏÈ¼¶ÑÕÉ«Ó³Éä */
+/** ä¼˜å…ˆçº§é¢œè‰²æ˜ å°„ */
 const priorityColorMap: Record&lt;API.WorkOrderPriority, string&gt; = {
   low: 'default',
   medium: 'blue',
@@ -156,86 +156,86 @@ const priorityColorMap: Record&lt;API.WorkOrderPriority, string&gt; = {
   urgent: 'red',
 };
 
-/** ×´Ì¬ÎÄ°¸ */
+/** çŠ¶æ€æ–‡æ¡ˆ */
 const statusLabelMap: Record&lt;API.WorkOrderStatus, string&gt; = {
-  pending: '´ı´¦Àí',
-  processing: '´¦ÀíÖĞ',
-  resolved: 'ÒÑ½â¾ö',
-  closed: 'ÒÑ¹Ø±Õ',
+  pending: 'å¾…å¤„ç†',
+  processing: 'å¤„ç†ä¸­',
+  resolved: 'å·²è§£å†³',
+  closed: 'å·²å…³é—­',
 };
 
-/** ÓÅÏÈ¼¶ÎÄ°¸ */
+/** ä¼˜å…ˆçº§æ–‡æ¡ˆ */
 const priorityLabelMap: Record&lt;API.WorkOrderPriority, string&gt; = {
-  low: 'µÍ',
-  medium: 'ÖĞ',
-  high: '¸ß',
-  urgent: '½ô¼±',
+  low: 'ä½',
+  medium: 'ä¸­',
+  high: 'é«˜',
+  urgent: 'ç´§æ€¥',
 };</pre>
 
-  <h4>5.2 ·ÖÒ³ÅäÖÃ</h4>
+  <h4>5.2 åˆ†é¡µé…ç½®</h4>
   <pre>
-/** ·ÖÒ³ÅäÖÃ */
+/** åˆ†é¡µé…ç½® */
 const paginationConfig: Partial&lt;TablePaginationConfig&gt; = {
   defaultPageSize: 10,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100'],
   showTotal: (total: number, range: [number, number]) =>
-    `${range[0]}-${range[1]} / ¹² ${total} Ìõ`,
+    `${range[0]}-${range[1]} / å…± ${total} æ¡`,
 };</pre>
 
-  <h4>5.3 ×´Ì¬¹ÜÀí</h4>
+  <h4>5.3 çŠ¶æ€ç®¡ç†</h4>
   <ul>
-    <li><code>actionRef</code> ¡ª ProTable ²Ù×÷ÒıÓÃ£¨ÓÃÓÚ reload£©</li>
-    <li><code>queryClient</code> ¡ª react-query ¿Í»§¶Ë£¨ÓÃÓÚ invalidateQueries£©</li>
-    <li><code>messageApi</code> ¡ª È«¾ÖÏûÏ¢ÌáÊ¾</li>
-    <li><code>selectedRowKeys</code> / <code>selectedRows</code> ¡ª ¶àÑ¡×´Ì¬</li>
-    <li><code>errorInfo</code> ¡ª ´íÎó×´Ì¬£¨º¬ message ºÍ retry º¯Êı£©</li>
+    <li><code>actionRef</code> â€” ProTable æ“ä½œå¼•ç”¨ï¼ˆç”¨äº reloadï¼‰</li>
+    <li><code>queryClient</code> â€” react-query å®¢æˆ·ç«¯ï¼ˆç”¨äº invalidateQueriesï¼‰</li>
+    <li><code>messageApi</code> â€” å…¨å±€æ¶ˆæ¯æç¤º</li>
+    <li><code>selectedRowKeys</code> / <code>selectedRows</code> â€” å¤šé€‰çŠ¶æ€</li>
+    <li><code>errorInfo</code> â€” é”™è¯¯çŠ¶æ€ï¼ˆå« message å’Œ retry å‡½æ•°ï¼‰</li>
   </ul>
 
-  <h4>5.4 Êı¾İ±ä¸ü Mutation</h4>
+  <h4>5.4 æ•°æ®å˜æ›´ Mutation</h4>
   <ul>
-    <li><strong>É¾³ı mutation</strong>£º<code>useMutation({ mutationFn: removeWorkOrders })</code>£¬³É¹¦ºóÇå¿ÕÑ¡ÖĞ¡¢Ë¢ĞÂ±í¸ñ¡¢invalidate react-query »º´æ</li>
-    <li><strong>×´Ì¬¸üĞÂ mutation</strong>£º<code>useMutation({ mutationFn: updateWorkOrderStatus })</code>£¬³É¹¦ºóË¢ĞÂ±í¸ñ</li>
+    <li><strong>åˆ é™¤ mutation</strong>ï¼š<code>useMutation({ mutationFn: removeWorkOrders })</code>ï¼ŒæˆåŠŸåæ¸…ç©ºé€‰ä¸­ã€åˆ·æ–°è¡¨æ ¼ã€invalidate react-query ç¼“å­˜</li>
+    <li><strong>çŠ¶æ€æ›´æ–° mutation</strong>ï¼š<code>useMutation({ mutationFn: updateWorkOrderStatus })</code>ï¼ŒæˆåŠŸååˆ·æ–°è¡¨æ ¼</li>
   </ul>
 
-  <h4>5.5 ÅúÁ¿²Ù×÷£¨¶ş´ÎÈ·ÈÏ£©</h4>
+  <h4>5.5 æ‰¹é‡æ“ä½œï¼ˆäºŒæ¬¡ç¡®è®¤ï¼‰</h4>
   <ul>
-    <li><strong>handleBatchDelete</strong>£º¼ì²éÑ¡ÖĞÊıÁ¿ ¡ú Modal.confirm£¨±êÌâ"È·ÈÏÅúÁ¿É¾³ı"£¬º¬Ñ¡ÖĞÊıÁ¿ÌáÊ¾£¬"´Ë²Ù×÷²»¿É³·Ïú"£¬okType='danger'£©¡ú µ÷ÓÃ runRemove</li>
-    <li><strong>handleBatchClose</strong>£º¼ì²éÑ¡ÖĞÊıÁ¿ ¡ú Modal.confirm£¨±êÌâ"È·ÈÏÅúÁ¿¹Ø±Õ"£©¡ú ÖğÌõ Promise.all µ÷ÓÃ updateWorkOrderStatus</li>
+    <li><strong>handleBatchDelete</strong>ï¼šæ£€æŸ¥é€‰ä¸­æ•°é‡ â†’ Modal.confirmï¼ˆæ ‡é¢˜"ç¡®è®¤æ‰¹é‡åˆ é™¤"ï¼Œå«é€‰ä¸­æ•°é‡æç¤ºï¼Œ"æ­¤æ“ä½œä¸å¯æ’¤é”€"ï¼ŒokType='danger'ï¼‰â†’ è°ƒç”¨ runRemove</li>
+    <li><strong>handleBatchClose</strong>ï¼šæ£€æŸ¥é€‰ä¸­æ•°é‡ â†’ Modal.confirmï¼ˆæ ‡é¢˜"ç¡®è®¤æ‰¹é‡å…³é—­"ï¼‰â†’ é€æ¡ Promise.all è°ƒç”¨ updateWorkOrderStatus</li>
   </ul>
 
-  <h4>5.6 µ¥Ìõ²Ù×÷£¨¶ş´ÎÈ·ÈÏ£©</h4>
+  <h4>5.6 å•æ¡æ“ä½œï¼ˆäºŒæ¬¡ç¡®è®¤ï¼‰</h4>
   <ul>
-    <li><strong>handleSingleStatusChange</strong>£ºModal.confirm£¨±êÌâ"È·ÈÏ¸ü¸Ä×´Ì¬"£¬ÏÔÊ¾¾É×´Ì¬¡úĞÂ×´Ì¬±ä¸ü£©¡ú µ÷ÓÃ runUpdateStatus</li>
-    <li><strong>handleSingleDelete</strong>£ºModal.confirm£¨±êÌâ"È·ÈÏÉ¾³ı"£¬º¬¹¤µ¥±êÌâ£¬"´Ë²Ù×÷²»¿É³·Ïú"£¬okType='danger'£©¡ú µ÷ÓÃ runRemove</li>
+    <li><strong>handleSingleStatusChange</strong>ï¼šModal.confirmï¼ˆæ ‡é¢˜"ç¡®è®¤æ›´æ”¹çŠ¶æ€"ï¼Œæ˜¾ç¤ºæ—§çŠ¶æ€â†’æ–°çŠ¶æ€å˜æ›´ï¼‰â†’ è°ƒç”¨ runUpdateStatus</li>
+    <li><strong>handleSingleDelete</strong>ï¼šModal.confirmï¼ˆæ ‡é¢˜"ç¡®è®¤åˆ é™¤"ï¼Œå«å·¥å•æ ‡é¢˜ï¼Œ"æ­¤æ“ä½œä¸å¯æ’¤é”€"ï¼ŒokType='danger'ï¼‰â†’ è°ƒç”¨ runRemove</li>
   </ul>
 
-  <h4>5.7 ÁĞ¶¨Òå£¨ProColumns£©</h4>
+  <h4>5.7 åˆ—å®šä¹‰ï¼ˆProColumnsï¼‰</h4>
   <table>
-    <tr><th>ÁĞÃû</th><th>dataIndex</th><th>¿í¶È</th><th>ÅÅĞò</th><th>É¸Ñ¡</th><th>±¸×¢</th></tr>
-    <tr><td>¹¤µ¥±àºÅ</td><td>id</td><td>140</td><td>¡ª</td><td>¡ª</td><td>copyable + ellipsis + fixed:'left'</td></tr>
-    <tr><td>¹¤µ¥±êÌâ</td><td>title</td><td>220</td><td>¡ª</td><td>¹Ø¼ü×ÖËÑË÷</td><td>ellipsis + ËÑË÷¿ò placeholder</td></tr>
-    <tr><td>×´Ì¬</td><td>status</td><td>100</td><td>?</td><td>? ÏÂÀ­É¸Ñ¡</td><td>Tag ²ÊÉ«äÖÈ¾ + valueEnum</td></tr>
-    <tr><td>ÓÅÏÈ¼¶</td><td>priority</td><td>90</td><td>?</td><td>? ÏÂÀ­É¸Ñ¡</td><td>Tag ²ÊÉ«äÖÈ¾ + valueEnum</td></tr>
-    <tr><td>´´½¨ÈË</td><td>creator</td><td>100</td><td>?</td><td>¡ª</td><td></td></tr>
-    <tr><td>´¦ÀíÈË</td><td>assignee</td><td>100</td><td>?</td><td>¡ª</td><td></td></tr>
-    <tr><td>´´½¨Ê±¼ä</td><td>createdAt</td><td>180</td><td>?</td><td>¡ª</td><td>valueType:'dateTime', search:false</td></tr>
-    <tr><td>¸üĞÂÊ±¼ä</td><td>updatedAt</td><td>180</td><td>?</td><td>¡ª</td><td>valueType:'dateTime', search:false</td></tr>
-    <tr><td>Ê±¼ä·¶Î§</td><td>timeRange</td><td>¡ª</td><td>¡ª</td><td>? ÈÕÆÚ·¶Î§</td><td>hideInTable, search.transform ¡ú startTime/endTime</td></tr>
-    <tr><td>²Ù×÷</td><td>option</td><td>220</td><td>¡ª</td><td>¡ª</td><td>fixed:'right', valueType:'option'</td></tr>
+    <tr><th>åˆ—å</th><th>dataIndex</th><th>å®½åº¦</th><th>æ’åº</th><th>ç­›é€‰</th><th>å¤‡æ³¨</th></tr>
+    <tr><td>å·¥å•ç¼–å·</td><td>id</td><td>140</td><td>â€”</td><td>â€”</td><td>copyable + ellipsis + fixed:'left'</td></tr>
+    <tr><td>å·¥å•æ ‡é¢˜</td><td>title</td><td>220</td><td>â€”</td><td>å…³é”®å­—æœç´¢</td><td>ellipsis + æœç´¢æ¡† placeholder</td></tr>
+    <tr><td>çŠ¶æ€</td><td>status</td><td>100</td><td>?</td><td>? ä¸‹æ‹‰ç­›é€‰</td><td>Tag å½©è‰²æ¸²æŸ“ + valueEnum</td></tr>
+    <tr><td>ä¼˜å…ˆçº§</td><td>priority</td><td>90</td><td>?</td><td>? ä¸‹æ‹‰ç­›é€‰</td><td>Tag å½©è‰²æ¸²æŸ“ + valueEnum</td></tr>
+    <tr><td>åˆ›å»ºäºº</td><td>creator</td><td>100</td><td>?</td><td>â€”</td><td></td></tr>
+    <tr><td>å¤„ç†äºº</td><td>assignee</td><td>100</td><td>?</td><td>â€”</td><td></td></tr>
+    <tr><td>åˆ›å»ºæ—¶é—´</td><td>createdAt</td><td>180</td><td>?</td><td>â€”</td><td>valueType:'dateTime', search:false</td></tr>
+    <tr><td>æ›´æ–°æ—¶é—´</td><td>updatedAt</td><td>180</td><td>?</td><td>â€”</td><td>valueType:'dateTime', search:false</td></tr>
+    <tr><td>æ—¶é—´èŒƒå›´</td><td>timeRange</td><td>â€”</td><td>â€”</td><td>? æ—¥æœŸèŒƒå›´</td><td>hideInTable, search.transform â†’ startTime/endTime</td></tr>
+    <tr><td>æ“ä½œ</td><td>option</td><td>220</td><td>â€”</td><td>â€”</td><td>fixed:'right', valueType:'option'</td></tr>
   </table>
 
-  <h4>5.8 ²Ù×÷ÁĞ°´Å¥Âß¼­</h4>
+  <h4>5.8 æ“ä½œåˆ—æŒ‰é’®é€»è¾‘</h4>
   <table>
-    <tr><th>µ±Ç°×´Ì¬</th><th>ÏÔÊ¾°´Å¥</th><th>Ä¿±ê×´Ì¬</th></tr>
-    <tr><td>pending£¨´ı´¦Àí£©</td><td>½Óµ¥</td><td>processing</td></tr>
-    <tr><td>processing£¨´¦ÀíÖĞ£©</td><td>½â¾ö</td><td>resolved</td></tr>
-    <tr><td>pending »ò processing</td><td>¹Ø±Õ</td><td>closed</td></tr>
-    <tr><td>closed£¨ÒÑ¹Ø±Õ£©</td><td>ÖØ¿ª</td><td>pending</td></tr>
-    <tr><td>ËùÓĞ×´Ì¬</td><td>É¾³ı£¨danger£©</td><td>É¾³ı</td></tr>
+    <tr><th>å½“å‰çŠ¶æ€</th><th>æ˜¾ç¤ºæŒ‰é’®</th><th>ç›®æ ‡çŠ¶æ€</th></tr>
+    <tr><td>pendingï¼ˆå¾…å¤„ç†ï¼‰</td><td>æ¥å•</td><td>processing</td></tr>
+    <tr><td>processingï¼ˆå¤„ç†ä¸­ï¼‰</td><td>è§£å†³</td><td>resolved</td></tr>
+    <tr><td>pending æˆ– processing</td><td>å…³é—­</td><td>closed</td></tr>
+    <tr><td>closedï¼ˆå·²å…³é—­ï¼‰</td><td>é‡å¼€</td><td>pending</td></tr>
+    <tr><td>æ‰€æœ‰çŠ¶æ€</td><td>åˆ é™¤ï¼ˆdangerï¼‰</td><td>åˆ é™¤</td></tr>
   </table>
 
-  <h4>5.9 ÇëÇóÊı¾İ´¦Àí£¨º¬´íÎóÌ¬£©</h4>
+  <h4>5.9 è¯·æ±‚æ•°æ®å¤„ç†ï¼ˆå«é”™è¯¯æ€ï¼‰</h4>
   <pre>
 const handleRequest = useCallback(
   async (params, sort, filter) => {
@@ -248,7 +248,7 @@ const handleRequest = useCallback(
       });
       return { data: result.data, success: result.success, total: result.total };
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error ? err.message : 'ÍøÂçÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂçºóÖØÊÔ';
+      const errorMessage = err instanceof Error ? err.message : 'ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘ç»œåé‡è¯•';
       setErrorInfo({ message: errorMessage, retry: () => actionRef.current?.reload() });
       return { data: [], success: false, total: 0 };
     }
@@ -256,29 +256,29 @@ const handleRequest = useCallback(
   [],
 );</pre>
 
-  <h4>5.10 ÈıÖÖ×´Ì¬äÖÈ¾</h4>
+  <h4>5.10 ä¸‰ç§çŠ¶æ€æ¸²æŸ“</h4>
   <ul>
-    <li><strong>Loading Ì¬</strong>£ºProTable ÄÚÖÃ£¬Í¨¹ı request ×Ô¶¯´¦Àí£»²Ù×÷°´Å¥Í¨¹ı <code>loading={removing}</code> »ò <code>loading={updating}</code> ÏÔÊ¾¼ÓÔØ</li>
-    <li><strong>¿ÕÌ¬</strong>£º<code>locale={{ emptyText: &lt;Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="ÔİÎŞ¹¤µ¥Êı¾İ" /&gt; }}</code></li>
-    <li><strong>´íÎóÌ¬</strong>£ºÌõ¼şäÖÈ¾ <code>&lt;Result status="error" title="Êı¾İ¼ÓÔØÊ§°Ü" subTitle={errorInfo.message} extra={&lt;Button onClick={errorInfo.retry}&gt;ÖØĞÂ¼ÓÔØ&lt;/Button&gt;} /&gt;</code></li>
+    <li><strong>Loading æ€</strong>ï¼šProTable å†…ç½®ï¼Œé€šè¿‡ request è‡ªåŠ¨å¤„ç†ï¼›æ“ä½œæŒ‰é’®é€šè¿‡ <code>loading={removing}</code> æˆ– <code>loading={updating}</code> æ˜¾ç¤ºåŠ è½½</li>
+    <li><strong>ç©ºæ€</strong>ï¼š<code>locale={{ emptyText: &lt;Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="æš‚æ— å·¥å•æ•°æ®" /&gt; }}</code></li>
+    <li><strong>é”™è¯¯æ€</strong>ï¼šæ¡ä»¶æ¸²æŸ“ <code>&lt;Result status="error" title="æ•°æ®åŠ è½½å¤±è´¥" subTitle={errorInfo.message} extra={&lt;Button onClick={errorInfo.retry}&gt;é‡æ–°åŠ è½½&lt;/Button&gt;} /&gt;</code></li>
   </ul>
 
-  <h4>5.11 ProTable ÅäÖÃ</h4>
+  <h4>5.11 ProTable é…ç½®</h4>
   <ul>
-    <li>headerTitle: "¹¤µ¥ÁĞ±í"</li>
-    <li>search: labelWidth=80, defaultCollapsed=false, span=8£¨3ÁĞËÑË÷²¼¾Ö£©</li>
+    <li>headerTitle: "å·¥å•åˆ—è¡¨"</li>
+    <li>search: labelWidth=80, defaultCollapsed=false, span=8ï¼ˆ3åˆ—æœç´¢å¸ƒå±€ï¼‰</li>
     <li>options: density + fullScreen + reload + setting</li>
-    <li>pagination: ¼Ì³Ğ paginationConfig</li>
-    <li>scroll: x=1300£¨ºáÏò¹ö¶¯£©</li>
-    <li>rowSelection: ÒÑ¹Ø±ÕµÄ¹¤µ¥²»¿ÉÑ¡£¨getCheckboxProps£©</li>
-    <li>tableAlertRender: false£¨¹Ø±ÕÄ¬ÈÏÌáÊ¾£¬Ê¹ÓÃ×Ô¶¨Òå FooterToolbar£©</li>
+    <li>pagination: ç»§æ‰¿ paginationConfig</li>
+    <li>scroll: x=1300ï¼ˆæ¨ªå‘æ»šåŠ¨ï¼‰</li>
+    <li>rowSelection: å·²å…³é—­çš„å·¥å•ä¸å¯é€‰ï¼ˆgetCheckboxPropsï¼‰</li>
+    <li>tableAlertRender: falseï¼ˆå…³é—­é»˜è®¤æç¤ºï¼Œä½¿ç”¨è‡ªå®šä¹‰ FooterToolbarï¼‰</li>
   </ul>
 
-  <h4>5.12 FooterToolbar£¨Åú´¦ÀíÀ¸£©</h4>
-  <p>Ñ¡ÖĞĞĞÊı´óÓÚ 0 Ê±ÏÔÊ¾£¬Õ¹Ê¾"ÒÑÑ¡Ôñ N Ïî¹¤µ¥"£¬°üº¬"ÅúÁ¿É¾³ı"ºÍ"ÅúÁ¿¹Ø±Õ"°´Å¥¡£</p>
+  <h4>5.12 FooterToolbarï¼ˆæ‰¹å¤„ç†æ ï¼‰</h4>
+  <p>é€‰ä¸­è¡Œæ•°å¤§äº 0 æ—¶æ˜¾ç¤ºï¼Œå±•ç¤º"å·²é€‰æ‹© N é¡¹å·¥å•"ï¼ŒåŒ…å«"æ‰¹é‡åˆ é™¤"å’Œ"æ‰¹é‡å…³é—­"æŒ‰é’®ã€‚</p>
 
-  <h3>²½Öè 6£ºÌí¼ÓÂ·ÓÉ</h3>
-  <p>ÔÚ <code>config/routes.ts</code> µÄ /list Â·ÓÉ×éÖĞĞÂÔö£º</p>
+  <h3>æ­¥éª¤ 6ï¼šæ·»åŠ è·¯ç”±</h3>
+  <p>åœ¨ <code>config/routes.ts</code> çš„ /list è·¯ç”±ç»„ä¸­æ–°å¢ï¼š</p>
   <pre>
 {
   name: 'workorder',
@@ -289,11 +289,11 @@ const handleRequest = useCallback(
 </div>
 
 <div class="section">
-  <h2>ËÄ¡¢±àÒëÓëÀàĞÍ¼ì²é½á¹û</h2>
+  <h2>å››ã€ç¼–è¯‘ä¸ç±»å‹æ£€æŸ¥ç»“æœ</h2>
 
-  <h3>TypeScript ÀàĞÍ¼ì²é</h3>
+  <h3>TypeScript ç±»å‹æ£€æŸ¥</h3>
   <pre>PS D:\workspace\QTCTest\projects\ant-design-pro&gt; npx tsc --noEmit
-£¨ÎŞÈÎºÎ´íÎóÊä³ö£¬±àÒëÍ¨¹ı£©</pre>
+ï¼ˆæ— ä»»ä½•é”™è¯¯è¾“å‡ºï¼Œç¼–è¯‘é€šè¿‡ï¼‰</pre>
 
   <h3>npm run build</h3>
   <pre>PS D:\workspace\QTCTest\projects\ant-design-pro&gt; npm run build
@@ -309,81 +309,81 @@ info  - Memory Usage: 195.91 MB (RSS: 979.3 MB)
 ...
 event - Build list\workorder\index.html
 ...
-£¨¹¹½¨³É¹¦£¬90 ¸ö×ÊÔ´ÎÄ¼şÉú³É£¬°üº¬ workorder Ò³Ãæ£©</pre>
+ï¼ˆæ„å»ºæˆåŠŸï¼Œ90 ä¸ªèµ„æºæ–‡ä»¶ç”Ÿæˆï¼ŒåŒ…å« workorder é¡µé¢ï¼‰</pre>
 
-  <h3>any ÀàĞÍ¼ì²é</h3>
-  <p>¶ÔĞÂÔöµÄÈı¸öÎÄ¼şÖ´ĞĞ grep£º</p>
+  <h3>any ç±»å‹æ£€æŸ¥</h3>
+  <p>å¯¹æ–°å¢çš„ä¸‰ä¸ªæ–‡ä»¶æ‰§è¡Œ grepï¼š</p>
   <pre>
-src/pages/workorder/index.tsx           ¡ú 0 matches
-src/services/ant-design-pro/workorder.ts ¡ú 0 matches
-mock/workorder.ts                        ¡ú 0 matches
-src/services/ant-design-pro/typings.d.ts ¡ú 0 matches£¨ĞÂÔö²¿·Ö£©</pre>
+src/pages/workorder/index.tsx           â†’ 0 matches
+src/services/ant-design-pro/workorder.ts â†’ 0 matches
+mock/workorder.ts                        â†’ 0 matches
+src/services/ant-design-pro/typings.d.ts â†’ 0 matchesï¼ˆæ–°å¢éƒ¨åˆ†ï¼‰</pre>
 
-  <h3>±àÒë´íÎóĞŞ¸´¼ÇÂ¼</h3>
+  <h3>ç¼–è¯‘é”™è¯¯ä¿®å¤è®°å½•</h3>
   <table>
-    <tr><th>#</th><th>´íÎóÃèÊö</th><th>ĞŞ¸´·½Ê½</th></tr>
-    <tr><td>1</td><td>hideInSearch ²»ÔÚ ProColumns ÀàĞÍÖĞ</td><td>¸ÄÎª search: false</td></tr>
-    <tr><td>2</td><td>hideInTable ²»ÔÚ ProColumns ÀàĞÍÖĞ</td><td>ÒÆ³ı hideInTable£¨¸üĞÂÊ±¼äÁĞÔÚ±í¸ñÖĞÏÔÊ¾£©</td></tr>
-    <tr><td>3</td><td>formRef ÀàĞÍ²»¼æÈİ£¨null vs undefined£©</td><td>ÒÆ³ıÎ´Ê¹ÓÃµÄ formRef</td></tr>
-    <tr><td>4</td><td>search.transform ÀàĞÍ¶ÏÑÔÈ±Ê§</td><td>Ìí¼Ó as ProColumns&lt;API.WorkOrderItem&gt;['search']</td></tr>
-    <tr><td>5</td><td>useRef&lt;ProFormInstance&gt;() È±ÉÙ²ÎÊı</td><td>ÒÆ³ı¸ÃÒıÓÃ£¨Î´±»Ê¹ÓÃ£©</td></tr>
-    <tr><td>6</td><td>UTF-8 ±àÂëÒì³£µ¼ÖÂ¹¹½¨Ê§°Ü</td><td>PowerShell Set-Content -Encoding UTF8 ÖØĞÂ±àÂëÎÄ¼ş</td></tr>
+    <tr><th>#</th><th>é”™è¯¯æè¿°</th><th>ä¿®å¤æ–¹å¼</th></tr>
+    <tr><td>1</td><td>hideInSearch ä¸åœ¨ ProColumns ç±»å‹ä¸­</td><td>æ”¹ä¸º search: false</td></tr>
+    <tr><td>2</td><td>hideInTable ä¸åœ¨ ProColumns ç±»å‹ä¸­</td><td>ç§»é™¤ hideInTableï¼ˆæ›´æ–°æ—¶é—´åˆ—åœ¨è¡¨æ ¼ä¸­æ˜¾ç¤ºï¼‰</td></tr>
+    <tr><td>3</td><td>formRef ç±»å‹ä¸å…¼å®¹ï¼ˆnull vs undefinedï¼‰</td><td>ç§»é™¤æœªä½¿ç”¨çš„ formRef</td></tr>
+    <tr><td>4</td><td>search.transform ç±»å‹æ–­è¨€ç¼ºå¤±</td><td>æ·»åŠ  as ProColumns&lt;API.WorkOrderItem&gt;['search']</td></tr>
+    <tr><td>5</td><td>useRef&lt;ProFormInstance&gt;() ç¼ºå°‘å‚æ•°</td><td>ç§»é™¤è¯¥å¼•ç”¨ï¼ˆæœªè¢«ä½¿ç”¨ï¼‰</td></tr>
+    <tr><td>6</td><td>UTF-8 ç¼–ç å¼‚å¸¸å¯¼è‡´æ„å»ºå¤±è´¥</td><td>PowerShell Set-Content -Encoding UTF8 é‡æ–°ç¼–ç æ–‡ä»¶</td></tr>
   </table>
 </div>
 
 <div class="section">
-  <h2>Îå¡¢ÎÄ¼ş±ä¸üÇåµ¥</h2>
+  <h2>äº”ã€æ–‡ä»¶å˜æ›´æ¸…å•</h2>
 
   <table>
-    <tr><th>ÎÄ¼ş</th><th>²Ù×÷</th><th>ĞĞÊı</th><th>ËµÃ÷</th></tr>
-    <tr><td>config/routes.ts</td><td>ĞŞ¸Ä</td><td>+22 / -8</td><td>ĞÂÔö /list/workorder Â·ÓÉ£¬Í¼±ê solution</td></tr>
-    <tr><td>src/services/ant-design-pro/typings.d.ts</td><td>ĞŞ¸Ä</td><td>+37</td><td>ĞÂÔö WorkOrderStatus/Priority/Item/List/Params 5 ¸öÀàĞÍ</td></tr>
-    <tr><td>src/services/ant-design-pro/workorder.ts</td><td>ĞÂ½¨</td><td>49</td><td>3 ¸ö API º¯Êı£ºÁĞ±í²éÑ¯¡¢ÅúÁ¿É¾³ı¡¢×´Ì¬¸üĞÂ</td></tr>
-    <tr><td>mock/workorder.ts</td><td>ĞÂ½¨</td><td>134</td><td>86 ÌõÄ£Äâ¹¤µ¥ + GET/POST ´¦ÀíÆ÷</td></tr>
-    <tr><td>src/pages/workorder/index.tsx</td><td>ĞÂ½¨</td><td>456</td><td>Ö÷Ò³Ãæ×é¼ş£ºProTable + É¸Ñ¡ + ÅúÁ¿/µ¥Ìõ²Ù×÷ + ÈıÌ¬</td></tr>
+    <tr><th>æ–‡ä»¶</th><th>æ“ä½œ</th><th>è¡Œæ•°</th><th>è¯´æ˜</th></tr>
+    <tr><td>config/routes.ts</td><td>ä¿®æ”¹</td><td>+22 / -8</td><td>æ–°å¢ /list/workorder è·¯ç”±ï¼Œå›¾æ ‡ solution</td></tr>
+    <tr><td>src/services/ant-design-pro/typings.d.ts</td><td>ä¿®æ”¹</td><td>+37</td><td>æ–°å¢ WorkOrderStatus/Priority/Item/List/Params 5 ä¸ªç±»å‹</td></tr>
+    <tr><td>src/services/ant-design-pro/workorder.ts</td><td>æ–°å»º</td><td>49</td><td>3 ä¸ª API å‡½æ•°ï¼šåˆ—è¡¨æŸ¥è¯¢ã€æ‰¹é‡åˆ é™¤ã€çŠ¶æ€æ›´æ–°</td></tr>
+    <tr><td>mock/workorder.ts</td><td>æ–°å»º</td><td>134</td><td>86 æ¡æ¨¡æ‹Ÿå·¥å• + GET/POST å¤„ç†å™¨</td></tr>
+    <tr><td>src/pages/workorder/index.tsx</td><td>æ–°å»º</td><td>456</td><td>ä¸»é¡µé¢ç»„ä»¶ï¼šProTable + ç­›é€‰ + æ‰¹é‡/å•æ¡æ“ä½œ + ä¸‰æ€</td></tr>
   </table>
-  <p><strong>×Ü¼Æ£º</strong>ĞŞ¸Ä 2 ¸öÎÄ¼ş£¨+51/-8 ĞĞ£©£¬ĞÂ½¨ 3 ¸öÎÄ¼ş£¨639 ĞĞ£©£¬ºÏ¼ÆÔ¼ 690 ĞĞ´úÂë±ä¸ü¡£</p>
+  <p><strong>æ€»è®¡ï¼š</strong>ä¿®æ”¹ 2 ä¸ªæ–‡ä»¶ï¼ˆ+51/-8 è¡Œï¼‰ï¼Œæ–°å»º 3 ä¸ªæ–‡ä»¶ï¼ˆ639 è¡Œï¼‰ï¼Œåˆè®¡çº¦ 690 è¡Œä»£ç å˜æ›´ã€‚</p>
 </div>
 
 <div class="section">
-  <h2>Áù¡¢ÑéÊÕ¼ì²éµã</h2>
+  <h2>å…­ã€éªŒæ”¶æ£€æŸ¥ç‚¹</h2>
 
   <table>
-    <tr><th>#</th><th>¼ì²éµã</th><th>½á¹û</th><th>ËµÃ÷</th></tr>
-    <tr><td>1</td><td>npm run build Í¨¹ı</td><td class="green">? Í¨¹ı</td><td>utoo pack v1.4.23 built in 8913ms£¬90 ¸ö×ÊÔ´ÎÄ¼ş£¬°üº¬ list/workorder/index.html</td></tr>
-    <tr><td>2</td><td>tsc ÎŞ any ±¨¾¯</td><td class="green">? Í¨¹ı</td><td>npx tsc --noEmit Áã´íÎó£¬ĞÂÔöÎÄ¼şÁã any ÀàĞÍ</td></tr>
-    <tr><td>3</td><td>É¸Ñ¡ + ·ÖÒ³ + ÅÅĞò¾ù¿ÉÓÃ</td><td class="green">? Í¨¹ı</td><td>×´Ì¬ÏÂÀ­É¸Ñ¡ + ÓÅÏÈ¼¶ÏÂÀ­É¸Ñ¡ + ±êÌâ¹Ø¼ü×ÖËÑË÷ + ÈÕÆÚ·¶Î§É¸Ñ¡£»6 ÁĞÅÅĞò£¨×´Ì¬/ÓÅÏÈ¼¶/´´½¨ÈË/´¦ÀíÈË/´´½¨Ê±¼ä/¸üĞÂÊ±¼ä£©£»Ä¬ÈÏ 10 Ìõ/Ò³£¬Ö§³Ö 10/20/50/100 ÇĞ»»</td></tr>
-    <tr><td>4</td><td>loading / ¿ÕÌ¬ / ´íÎóÌ¬ÆëÈ«</td><td class="green">? Í¨¹ı</td><td>ProTable ÄÚÖÃ loading£»×Ô¶¨Òå Empty ×é¼ş£¨"ÔİÎŞ¹¤µ¥Êı¾İ"£©£»Result error ×´Ì¬ + ÖØÊÔ°´Å¥</td></tr>
-    <tr><td>5</td><td>Î´ÒıÈëĞÂ×é¼ş¿â</td><td class="green">? Í¨¹ı</td><td>½öÊ¹ÓÃ antd v6 + @ant-design/pro-components£¨ÏîÄ¿ÒÑÓĞÒÀÀµ£©</td></tr>
+    <tr><th>#</th><th>æ£€æŸ¥ç‚¹</th><th>ç»“æœ</th><th>è¯´æ˜</th></tr>
+    <tr><td>1</td><td>npm run build é€šè¿‡</td><td class="green">? é€šè¿‡</td><td>utoo pack v1.4.23 built in 8913msï¼Œ90 ä¸ªèµ„æºæ–‡ä»¶ï¼ŒåŒ…å« list/workorder/index.html</td></tr>
+    <tr><td>2</td><td>tsc æ—  any æŠ¥è­¦</td><td class="green">? é€šè¿‡</td><td>npx tsc --noEmit é›¶é”™è¯¯ï¼Œæ–°å¢æ–‡ä»¶é›¶ any ç±»å‹</td></tr>
+    <tr><td>3</td><td>ç­›é€‰ + åˆ†é¡µ + æ’åºå‡å¯ç”¨</td><td class="green">? é€šè¿‡</td><td>çŠ¶æ€ä¸‹æ‹‰ç­›é€‰ + ä¼˜å…ˆçº§ä¸‹æ‹‰ç­›é€‰ + æ ‡é¢˜å…³é”®å­—æœç´¢ + æ—¥æœŸèŒƒå›´ç­›é€‰ï¼›6 åˆ—æ’åºï¼ˆçŠ¶æ€/ä¼˜å…ˆçº§/åˆ›å»ºäºº/å¤„ç†äºº/åˆ›å»ºæ—¶é—´/æ›´æ–°æ—¶é—´ï¼‰ï¼›é»˜è®¤ 10 æ¡/é¡µï¼Œæ”¯æŒ 10/20/50/100 åˆ‡æ¢</td></tr>
+    <tr><td>4</td><td>loading / ç©ºæ€ / é”™è¯¯æ€é½å…¨</td><td class="green">? é€šè¿‡</td><td>ProTable å†…ç½® loadingï¼›è‡ªå®šä¹‰ Empty ç»„ä»¶ï¼ˆ"æš‚æ— å·¥å•æ•°æ®"ï¼‰ï¼›Result error çŠ¶æ€ + é‡è¯•æŒ‰é’®</td></tr>
+    <tr><td>5</td><td>æœªå¼•å…¥æ–°ç»„ä»¶åº“</td><td class="green">? é€šè¿‡</td><td>ä»…ä½¿ç”¨ antd v6 + @ant-design/pro-componentsï¼ˆé¡¹ç›®å·²æœ‰ä¾èµ–ï¼‰</td></tr>
   </table>
 
-  <p style="font-size: 18px; color: #1677ff; font-weight: bold;">¼ì²éµã¹ıÊı£º5/5 ?</p>
+  <p style="font-size: 18px; color: #1677ff; font-weight: bold;">æ£€æŸ¥ç‚¹è¿‡æ•°ï¼š5/5 ?</p>
 </div>
 
 <div class="section">
-  <h2>Æß¡¢¼ÇÂ¼Ö¸±ê</h2>
+  <h2>ä¸ƒã€è®°å½•æŒ‡æ ‡</h2>
 
   <table>
-    <tr><th>Ö¸±ê</th><th>ÊıÖµ</th></tr>
-    <tr><td>¼ì²éµã¹ıÊı</td><td>5/5</td></tr>
-    <tr><td>ºÄÊ±</td><td>Ô¼ 8 ·ÖÖÓ</td></tr>
-    <tr><td>ÈË¹¤ĞŞ¸´ĞĞÊı</td><td>Ô¼ 690 ĞĞ£¨ĞŞ¸Ä 2 ÎÄ¼ş +51/-8 ĞĞ£¬ĞÂÔö 3 ÎÄ¼ş 639 ĞĞ£©</td></tr>
-    <tr><td>½éÈë´ÎÊı</td><td>1 ´Î£¨UTF-8 ±àÂëÎÊÌâµ¼ÖÂÊ×´Î¹¹½¨Ê§°Ü£¬PowerShell ÖØĞÂ±àÂëºóÍ¨¹ı£©</td></tr>
+    <tr><th>æŒ‡æ ‡</th><th>æ•°å€¼</th></tr>
+    <tr><td>æ£€æŸ¥ç‚¹è¿‡æ•°</td><td>5/5</td></tr>
+    <tr><td>è€—æ—¶</td><td>çº¦ 8 åˆ†é’Ÿ</td></tr>
+    <tr><td>äººå·¥ä¿®å¤è¡Œæ•°</td><td>çº¦ 690 è¡Œï¼ˆä¿®æ”¹ 2 æ–‡ä»¶ +51/-8 è¡Œï¼Œæ–°å¢ 3 æ–‡ä»¶ 639 è¡Œï¼‰</td></tr>
+    <tr><td>ä»‹å…¥æ¬¡æ•°</td><td>1 æ¬¡ï¼ˆUTF-8 ç¼–ç é—®é¢˜å¯¼è‡´é¦–æ¬¡æ„å»ºå¤±è´¥ï¼ŒPowerShell é‡æ–°ç¼–ç åé€šè¿‡ï¼‰</td></tr>
   </table>
 </div>
 
 <div class="section">
-  <h2>°Ë¡¢ÍêÕûÔ´´úÂë</h2>
+  <h2>å…«ã€å®Œæ•´æºä»£ç </h2>
 
-  <h3>8.1 src/services/ant-design-pro/typings.d.ts£¨ĞÂÔö²¿·Ö£©</h3>
+  <h3>8.1 src/services/ant-design-pro/typings.d.tsï¼ˆæ–°å¢éƒ¨åˆ†ï¼‰</h3>
   <pre>
-  /** ¹¤µ¥×´Ì¬ */
+  /** å·¥å•çŠ¶æ€ */
   type WorkOrderStatus = 'pending' | 'processing' | 'resolved' | 'closed';
 
-  /** ¹¤µ¥ÓÅÏÈ¼¶ */
+  /** å·¥å•ä¼˜å…ˆçº§ */
   type WorkOrderPriority = 'low' | 'medium' | 'high' | 'urgent';
 
-  /** ¹¤µ¥ÌõÄ¿ */
+  /** å·¥å•æ¡ç›® */
   type WorkOrderItem = {
     id: string;
     title: string;
@@ -396,14 +396,14 @@ src/services/ant-design-pro/typings.d.ts ¡ú 0 matches£¨ĞÂÔö²¿·Ö£©</pre>
     description: string;
   };
 
-  /** ¹¤µ¥ÁĞ±íÏìÓ¦ */
+  /** å·¥å•åˆ—è¡¨å“åº” */
   type WorkOrderList = {
     data: WorkOrderItem[];
     total: number;
     success: boolean;
   };
 
-  /** ¹¤µ¥²éÑ¯²ÎÊı */
+  /** å·¥å•æŸ¥è¯¢å‚æ•° */
   type WorkOrderParams = {
     current?: number;
     pageSize?: number;
@@ -418,7 +418,7 @@ src/services/ant-design-pro/typings.d.ts ¡ú 0 matches£¨ĞÂÔö²¿·Ö£©</pre>
   <pre>
 import { request } from '@umijs/max';
 
-/** »ñÈ¡¹¤µ¥ÁĞ±í GET /api/workorder */
+/** è·å–å·¥å•åˆ—è¡¨ GET /api/workorder */
 export async function getWorkOrderList(
   params: API.WorkOrderParams & {
     sorter?: Record&lt;string, string&gt;;
@@ -433,7 +433,7 @@ export async function getWorkOrderList(
   });
 }
 
-/** É¾³ı¹¤µ¥ DELETE /api/workorder */
+/** åˆ é™¤å·¥å• DELETE /api/workorder */
 export async function removeWorkOrders(
   params: { ids: string[] },
   options?: Record&lt;string, unknown&gt;,
@@ -445,7 +445,7 @@ export async function removeWorkOrders(
   });
 }
 
-/** ¸üĞÂ¹¤µ¥×´Ì¬ POST /api/workorder */
+/** æ›´æ–°å·¥å•çŠ¶æ€ POST /api/workorder */
 export async function updateWorkOrderStatus(
   params: { id: string; status: API.WorkOrderStatus },
   options?: Record&lt;string, unknown&gt;,
@@ -464,9 +464,9 @@ import type { Request, Response } from 'express';
 
 const statuses: API.WorkOrderStatus[] = ['pending', 'processing', 'resolved', 'closed'];
 const priorities: API.WorkOrderPriority[] = ['low', 'medium', 'high', 'urgent'];
-const creators = ['ÕÅÈı', 'ÀîËÄ', 'ÍõÎå', 'ÕÔÁù', 'ËïÆß'];
-const assignees = ['³Â¹¤', 'Áõ¹¤', 'ÖÜ¹¤', 'Îâ¹¤', 'Ö£¹¤'];
-const titlePrefixes = ['ÏµÍ³¹ÊÕÏ', 'ÍøÂçÒì³£', 'ÕËºÅÎÊÌâ', 'È¨ÏŞÉêÇë', 'Êı¾İµ¼³ö', 'Éè±¸±¨ĞŞ', 'Èí¼ş°²×°', 'ÃÜÂëÖØÖÃ'];
+const creators = ['å¼ ä¸‰', 'æå››', 'ç‹äº”', 'èµµå…­', 'å­™ä¸ƒ'];
+const assignees = ['é™ˆå·¥', 'åˆ˜å·¥', 'å‘¨å·¥', 'å´å·¥', 'éƒ‘å·¥'];
+const titlePrefixes = ['ç³»ç»Ÿæ•…éšœ', 'ç½‘ç»œå¼‚å¸¸', 'è´¦å·é—®é¢˜', 'æƒé™ç”³è¯·', 'æ•°æ®å¯¼å‡º', 'è®¾å¤‡æŠ¥ä¿®', 'è½¯ä»¶å®‰è£…', 'å¯†ç é‡ç½®'];
 
 const generateWorkOrders = (count: number): API.WorkOrderItem[] => {
   const items: API.WorkOrderItem[] = [];
@@ -477,7 +477,7 @@ const generateWorkOrders = (count: number): API.WorkOrderItem[] => {
       .format('YYYY-MM-DD HH:mm:ss');
     items.push({
       id: `WO-${String(i + 1).padStart(5, '0')}`,
-      title: `${titlePrefixes[i % titlePrefixes.length]}¹¤µ¥-${i + 1}`,
+      title: `${titlePrefixes[i % titlePrefixes.length]}å·¥å•-${i + 1}`,
       status,
       priority: priorities[i % 4],
       creator: creators[i % creators.length],
@@ -486,7 +486,7 @@ const generateWorkOrders = (count: number): API.WorkOrderItem[] => {
       updatedAt: dayjs(createdAt)
         .add(Math.floor(Math.random() * 5), 'hour')
         .format('YYYY-MM-DD HH:mm:ss'),
-      description: `ÕâÊÇ¹¤µ¥ WO-${String(i + 1).padStart(5, '0')} µÄÏêÏ¸ÃèÊöĞÅÏ¢¡£`,
+      description: `è¿™æ˜¯å·¥å• WO-${String(i + 1).padStart(5, '0')} çš„è¯¦ç»†æè¿°ä¿¡æ¯ã€‚`,
     });
   }
   return items;
@@ -501,17 +501,17 @@ function getWorkOrders(req: Request, res: Response) {
 
   let filteredData = [...workOrderDataSource];
 
-  // ×´Ì¬É¸Ñ¡
+  // çŠ¶æ€ç­›é€‰
   if (status && statuses.includes(status as API.WorkOrderStatus)) {
     filteredData = filteredData.filter((item) => item.status === status);
   }
 
-  // ÓÅÏÈ¼¶É¸Ñ¡
+  // ä¼˜å…ˆçº§ç­›é€‰
   if (priority && priorities.includes(priority as API.WorkOrderPriority)) {
     filteredData = filteredData.filter((item) => item.priority === priority);
   }
 
-  // ¹Ø¼ü×ÖËÑË÷£¨±êÌâ/´´½¨ÈË/´¦ÀíÈË£©
+  // å…³é”®å­—æœç´¢ï¼ˆæ ‡é¢˜/åˆ›å»ºäºº/å¤„ç†äººï¼‰
   if (keyword) {
     const kw = String(keyword).toLowerCase();
     filteredData = filteredData.filter(
@@ -522,7 +522,7 @@ function getWorkOrders(req: Request, res: Response) {
     );
   }
 
-  // Ê±¼ä·¶Î§É¸Ñ¡
+  // æ—¶é—´èŒƒå›´ç­›é€‰
   if (startTime) {
     filteredData = filteredData.filter((item) => item.createdAt >= startTime);
   }
@@ -530,7 +530,7 @@ function getWorkOrders(req: Request, res: Response) {
     filteredData = filteredData.filter((item) => item.createdAt <= endTime);
   }
 
-  // ÅÅĞò
+  // æ’åº
   if (sorter) {
     try {
       const sortObj = JSON.parse(sorter) as Record&lt;string, string&gt;;
@@ -590,7 +590,7 @@ export default {
   'POST /api/workorder': postWorkOrder,
 };</pre>
 
-  <h3>8.4 src/pages/workorder/index.tsx£¨ÍêÕûÔ´´úÂë£©</h3>
+  <h3>8.4 src/pages/workorder/index.tsxï¼ˆå®Œæ•´æºä»£ç ï¼‰</h3>
   <pre>
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import {
@@ -616,7 +616,7 @@ import {
   updateWorkOrderStatus,
 } from '@/services/ant-design-pro/workorder';
 
-/** ×´Ì¬ÑÕÉ«Ó³Éä£º¸´ÓÃ antd Tag Ô¤ÉèÉ« */
+/** çŠ¶æ€é¢œè‰²æ˜ å°„ï¼šå¤ç”¨ antd Tag é¢„è®¾è‰² */
 const statusColorMap: Record&lt;API.WorkOrderStatus, string&gt; = {
   pending: 'default',
   processing: 'processing',
@@ -624,7 +624,7 @@ const statusColorMap: Record&lt;API.WorkOrderStatus, string&gt; = {
   closed: 'error',
 };
 
-/** ÓÅÏÈ¼¶ÑÕÉ«Ó³Éä */
+/** ä¼˜å…ˆçº§é¢œè‰²æ˜ å°„ */
 const priorityColorMap: Record&lt;API.WorkOrderPriority, string&gt; = {
   low: 'default',
   medium: 'blue',
@@ -632,29 +632,29 @@ const priorityColorMap: Record&lt;API.WorkOrderPriority, string&gt; = {
   urgent: 'red',
 };
 
-/** ×´Ì¬ÎÄ°¸ */
+/** çŠ¶æ€æ–‡æ¡ˆ */
 const statusLabelMap: Record&lt;API.WorkOrderStatus, string&gt; = {
-  pending: '´ı´¦Àí',
-  processing: '´¦ÀíÖĞ',
-  resolved: 'ÒÑ½â¾ö',
-  closed: 'ÒÑ¹Ø±Õ',
+  pending: 'å¾…å¤„ç†',
+  processing: 'å¤„ç†ä¸­',
+  resolved: 'å·²è§£å†³',
+  closed: 'å·²å…³é—­',
 };
 
-/** ÓÅÏÈ¼¶ÎÄ°¸ */
+/** ä¼˜å…ˆçº§æ–‡æ¡ˆ */
 const priorityLabelMap: Record&lt;API.WorkOrderPriority, string&gt; = {
-  low: 'µÍ',
-  medium: 'ÖĞ',
-  high: '¸ß',
-  urgent: '½ô¼±',
+  low: 'ä½',
+  medium: 'ä¸­',
+  high: 'é«˜',
+  urgent: 'ç´§æ€¥',
 };
 
-/** ·ÖÒ³ÅäÖÃ */
+/** åˆ†é¡µé…ç½® */
 const paginationConfig: Partial&lt;TablePaginationConfig&gt; = {
   defaultPageSize: 10,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100'],
   showTotal: (total: number, range: [number, number]) =>
-    `${range[0]}-${range[1]} / ¹² ${total} Ìõ`,
+    `${range[0]}-${range[1]} / å…± ${total} æ¡`,
 };
 
 const WorkOrderList: React.FC = () => {
@@ -666,45 +666,45 @@ const WorkOrderList: React.FC = () => {
   const [selectedRows, setSelectedRows] = useState&lt;API.WorkOrderItem[]&gt;([]);
   const [errorInfo, setErrorInfo] = useState&lt;{ message: string; retry: () => void } | null&gt;(null);
 
-  // ---- É¾³ı mutation ----
+  // ---- åˆ é™¤ mutation ----
   const { mutateAsync: runRemove, isPending: removing } = useMutation({
     mutationFn: removeWorkOrders,
     onSuccess: () => {
-      messageApi.success('É¾³ı³É¹¦');
+      messageApi.success('åˆ é™¤æˆåŠŸ');
       setSelectedRowKeys([]);
       setSelectedRows([]);
       actionRef.current?.reloadAndRest?.();
       queryClient.invalidateQueries({ queryKey: ['workorder'] });
     },
     onError: () => {
-      messageApi.error('É¾³ıÊ§°Ü£¬ÇëÖØÊÔ');
+      messageApi.error('åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•');
     },
   });
 
-  // ---- ×´Ì¬¸üĞÂ mutation ----
+  // ---- çŠ¶æ€æ›´æ–° mutation ----
   const { mutateAsync: runUpdateStatus, isPending: updating } = useMutation({
     mutationFn: updateWorkOrderStatus,
     onSuccess: () => {
-      messageApi.success('×´Ì¬¸üĞÂ³É¹¦');
+      messageApi.success('çŠ¶æ€æ›´æ–°æˆåŠŸ');
       actionRef.current?.reloadAndRest?.();
       queryClient.invalidateQueries({ queryKey: ['workorder'] });
     },
     onError: () => {
-      messageApi.error('×´Ì¬¸üĞÂÊ§°Ü£¬ÇëÖØÊÔ');
+      messageApi.error('çŠ¶æ€æ›´æ–°å¤±è´¥ï¼Œè¯·é‡è¯•');
     },
   });
 
-  // ---- ÅúÁ¿É¾³ı ----
+  // ---- æ‰¹é‡åˆ é™¤ ----
   const handleBatchDelete = useCallback(() => {
     if (selectedRowKeys.length === 0) {
-      messageApi.warning('ÇëÏÈÑ¡ÔñÒªÉ¾³ıµÄ¹¤µ¥');
+      messageApi.warning('è¯·å…ˆé€‰æ‹©è¦åˆ é™¤çš„å·¥å•');
       return;
     }
     Modal.confirm({
-      title: 'È·ÈÏÅúÁ¿É¾³ı',
-      content: `È·¶¨ÒªÉ¾³ıÑ¡ÖĞµÄ ${selectedRowKeys.length} Ìõ¹¤µ¥Âğ£¿´Ë²Ù×÷²»¿É³·Ïú¡£`,
-      okText: 'È·ÈÏÉ¾³ı',
-      cancelText: 'È¡Ïû',
+      title: 'ç¡®è®¤æ‰¹é‡åˆ é™¤',
+      content: `ç¡®å®šè¦åˆ é™¤é€‰ä¸­çš„ ${selectedRowKeys.length} æ¡å·¥å•å—ï¼Ÿæ­¤æ“ä½œä¸å¯æ’¤é”€ã€‚`,
+      okText: 'ç¡®è®¤åˆ é™¤',
+      cancelText: 'å–æ¶ˆ',
       okType: 'danger',
       onOk: async () => {
         await runRemove({ ids: selectedRowKeys });
@@ -712,23 +712,23 @@ const WorkOrderList: React.FC = () => {
     });
   }, [selectedRowKeys, runRemove, messageApi]);
 
-  // ---- ÅúÁ¿¹Ø±Õ ----
+  // ---- æ‰¹é‡å…³é—­ ----
   const handleBatchClose = useCallback(() => {
     if (selectedRowKeys.length === 0) {
-      messageApi.warning('ÇëÏÈÑ¡ÔñÒª¹Ø±ÕµÄ¹¤µ¥');
+      messageApi.warning('è¯·å…ˆé€‰æ‹©è¦å…³é—­çš„å·¥å•');
       return;
     }
     Modal.confirm({
-      title: 'È·ÈÏÅúÁ¿¹Ø±Õ',
-      content: `È·¶¨Òª¹Ø±ÕÑ¡ÖĞµÄ ${selectedRowKeys.length} Ìõ¹¤µ¥Âğ£¿`,
-      okText: 'È·ÈÏ¹Ø±Õ',
-      cancelText: 'È¡Ïû',
+      title: 'ç¡®è®¤æ‰¹é‡å…³é—­',
+      content: `ç¡®å®šè¦å…³é—­é€‰ä¸­çš„ ${selectedRowKeys.length} æ¡å·¥å•å—ï¼Ÿ`,
+      okText: 'ç¡®è®¤å…³é—­',
+      cancelText: 'å–æ¶ˆ',
       onOk: async () => {
         const promises = selectedRowKeys.map((id) =>
           updateWorkOrderStatus({ id, status: 'closed' }),
         );
         await Promise.all(promises);
-        messageApi.success('ÅúÁ¿¹Ø±Õ³É¹¦');
+        messageApi.success('æ‰¹é‡å…³é—­æˆåŠŸ');
         setSelectedRowKeys([]);
         setSelectedRows([]);
         actionRef.current?.reloadAndRest?.();
@@ -737,14 +737,14 @@ const WorkOrderList: React.FC = () => {
     });
   }, [selectedRowKeys, messageApi, actionRef, queryClient]);
 
-  // ---- µ¥Ìõ²Ù×÷£º¸üĞÂ×´Ì¬ ----
+  // ---- å•æ¡æ“ä½œï¼šæ›´æ–°çŠ¶æ€ ----
   const handleSingleStatusChange = useCallback(
     (record: API.WorkOrderItem, newStatus: API.WorkOrderStatus) => {
       Modal.confirm({
-        title: 'È·ÈÏ¸ü¸Ä×´Ì¬',
-        content: `È·¶¨Òª½«¹¤µ¥¡¸${record.title}¡¹µÄ×´Ì¬´Ó¡¸${statusLabelMap[record.status]}¡¹¸ü¸ÄÎª¡¸${statusLabelMap[newStatus]}¡¹Âğ£¿`,
-        okText: 'È·ÈÏ',
-        cancelText: 'È¡Ïû',
+        title: 'ç¡®è®¤æ›´æ”¹çŠ¶æ€',
+        content: `ç¡®å®šè¦å°†å·¥å•ã€Œ${record.title}ã€çš„çŠ¶æ€ä»ã€Œ${statusLabelMap[record.status]}ã€æ›´æ”¹ä¸ºã€Œ${statusLabelMap[newStatus]}ã€å—ï¼Ÿ`,
+        okText: 'ç¡®è®¤',
+        cancelText: 'å–æ¶ˆ',
         onOk: async () => {
           await runUpdateStatus({ id: record.id, status: newStatus });
         },
@@ -753,14 +753,14 @@ const WorkOrderList: React.FC = () => {
     [runUpdateStatus],
   );
 
-  // ---- µ¥Ìõ²Ù×÷£ºÉ¾³ı ----
+  // ---- å•æ¡æ“ä½œï¼šåˆ é™¤ ----
   const handleSingleDelete = useCallback(
     (record: API.WorkOrderItem) => {
       Modal.confirm({
-        title: 'È·ÈÏÉ¾³ı',
-        content: `È·¶¨ÒªÉ¾³ı¹¤µ¥¡¸${record.title}¡¹Âğ£¿´Ë²Ù×÷²»¿É³·Ïú¡£`,
-        okText: 'È·ÈÏÉ¾³ı',
-        cancelText: 'È¡Ïû',
+        title: 'ç¡®è®¤åˆ é™¤',
+        content: `ç¡®å®šè¦åˆ é™¤å·¥å•ã€Œ${record.title}ã€å—ï¼Ÿæ­¤æ“ä½œä¸å¯æ’¤é”€ã€‚`,
+        okText: 'ç¡®è®¤åˆ é™¤',
+        cancelText: 'å–æ¶ˆ',
         okType: 'danger',
         onOk: async () => {
           await runRemove({ ids: [record.id] });
@@ -770,10 +770,10 @@ const WorkOrderList: React.FC = () => {
     [runRemove],
   );
 
-  // ---- ÁĞ¶¨Òå ----
+  // ---- åˆ—å®šä¹‰ ----
   const columns: ProColumns&lt;API.WorkOrderItem&gt;[] = [
     {
-      title: '¹¤µ¥±àºÅ',
+      title: 'å·¥å•ç¼–å·',
       dataIndex: 'id',
       width: 140,
       copyable: true,
@@ -781,62 +781,62 @@ const WorkOrderList: React.FC = () => {
       fixed: 'left',
     },
     {
-      title: '¹¤µ¥±êÌâ',
+      title: 'å·¥å•æ ‡é¢˜',
       dataIndex: 'title',
       width: 220,
       ellipsis: true,
       fieldProps: {
-        placeholder: 'ÇëÊäÈë¹¤µ¥±êÌâËÑË÷',
+        placeholder: 'è¯·è¾“å…¥å·¥å•æ ‡é¢˜æœç´¢',
       },
     },
     {
-      title: '×´Ì¬',
+      title: 'çŠ¶æ€',
       dataIndex: 'status',
       width: 100,
       sorter: true,
       filters: true,
       valueType: 'select',
       valueEnum: {
-        pending: { text: '´ı´¦Àí', status: 'Default' },
-        processing: { text: '´¦ÀíÖĞ', status: 'Processing' },
-        resolved: { text: 'ÒÑ½â¾ö', status: 'Success' },
-        closed: { text: 'ÒÑ¹Ø±Õ', status: 'Error' },
+        pending: { text: 'å¾…å¤„ç†', status: 'Default' },
+        processing: { text: 'å¤„ç†ä¸­', status: 'Processing' },
+        resolved: { text: 'å·²è§£å†³', status: 'Success' },
+        closed: { text: 'å·²å…³é—­', status: 'Error' },
       },
       render: (_, record) => (
         &lt;Tag color={statusColorMap[record.status]}&gt;{statusLabelMap[record.status]}&lt;/Tag&gt;
       ),
     },
     {
-      title: 'ÓÅÏÈ¼¶',
+      title: 'ä¼˜å…ˆçº§',
       dataIndex: 'priority',
       width: 90,
       sorter: true,
       filters: true,
       valueType: 'select',
       valueEnum: {
-        low: { text: 'µÍ' },
-        medium: { text: 'ÖĞ' },
-        high: { text: '¸ß' },
-        urgent: { text: '½ô¼±' },
+        low: { text: 'ä½' },
+        medium: { text: 'ä¸­' },
+        high: { text: 'é«˜' },
+        urgent: { text: 'ç´§æ€¥' },
       },
       render: (_, record) => (
         &lt;Tag color={priorityColorMap[record.priority]}&gt;{priorityLabelMap[record.priority]}&lt;/Tag&gt;
       ),
     },
     {
-      title: '´´½¨ÈË',
+      title: 'åˆ›å»ºäºº',
       dataIndex: 'creator',
       width: 100,
       sorter: true,
     },
     {
-      title: '´¦ÀíÈË',
+      title: 'å¤„ç†äºº',
       dataIndex: 'assignee',
       width: 100,
       sorter: true,
     },
     {
-      title: '´´½¨Ê±¼ä',
+      title: 'åˆ›å»ºæ—¶é—´',
       dataIndex: 'createdAt',
       width: 180,
       sorter: true,
@@ -844,7 +844,7 @@ const WorkOrderList: React.FC = () => {
       search: false,
     },
     {
-      title: '¸üĞÂÊ±¼ä',
+      title: 'æ›´æ–°æ—¶é—´',
       dataIndex: 'updatedAt',
       width: 180,
       sorter: true,
@@ -852,7 +852,7 @@ const WorkOrderList: React.FC = () => {
       search: false,
     },
     {
-      title: 'Ê±¼ä·¶Î§',
+      title: 'æ—¶é—´èŒƒå›´',
       dataIndex: 'timeRange',
       valueType: 'dateRange',
       hideInTable: true,
@@ -863,11 +863,11 @@ const WorkOrderList: React.FC = () => {
         }),
       } as ProColumns&lt;API.WorkOrderItem&gt;['search'],
       fieldProps: {
-        placeholder: ['¿ªÊ¼ÈÕÆÚ', '½áÊøÈÕÆÚ'],
+        placeholder: ['å¼€å§‹æ—¥æœŸ', 'ç»“æŸæ—¥æœŸ'],
       },
     },
     {
-      title: '²Ù×÷',
+      title: 'æ“ä½œ',
       dataIndex: 'option',
       valueType: 'option',
       width: 220,
@@ -876,28 +876,28 @@ const WorkOrderList: React.FC = () => {
         &lt;Space size="small"&gt;
           {record.status === 'pending' && (
             &lt;Button type="link" size="small" loading={updating}
-              onClick={() => handleSingleStatusChange(record, 'processing')}&gt;½Óµ¥&lt;/Button&gt;
+              onClick={() => handleSingleStatusChange(record, 'processing')}&gt;æ¥å•&lt;/Button&gt;
           )}
           {record.status === 'processing' && (
             &lt;Button type="link" size="small" loading={updating}
-              onClick={() => handleSingleStatusChange(record, 'resolved')}&gt;½â¾ö&lt;/Button&gt;
+              onClick={() => handleSingleStatusChange(record, 'resolved')}&gt;è§£å†³&lt;/Button&gt;
           )}
           {(record.status === 'pending' || record.status === 'processing') && (
             &lt;Button type="link" size="small" loading={updating}
-              onClick={() => handleSingleStatusChange(record, 'closed')}&gt;¹Ø±Õ&lt;/Button&gt;
+              onClick={() => handleSingleStatusChange(record, 'closed')}&gt;å…³é—­&lt;/Button&gt;
           )}
           {record.status === 'closed' && (
             &lt;Button type="link" size="small" loading={updating}
-              onClick={() => handleSingleStatusChange(record, 'pending')}&gt;ÖØ¿ª&lt;/Button&gt;
+              onClick={() => handleSingleStatusChange(record, 'pending')}&gt;é‡å¼€&lt;/Button&gt;
           )}
           &lt;Button type="link" size="small" danger loading={removing}
-            onClick={() => handleSingleDelete(record)}&gt;É¾³ı&lt;/Button&gt;
+            onClick={() => handleSingleDelete(record)}&gt;åˆ é™¤&lt;/Button&gt;
         &lt;/Space&gt;
       ),
     },
   ];
 
-  // ---- ÇëÇóÊı¾İ£¨°üº¬´íÎó´¦Àí£©----
+  // ---- è¯·æ±‚æ•°æ®ï¼ˆåŒ…å«é”™è¯¯å¤„ç†ï¼‰----
   const handleRequest = useCallback(
     async (
       params: Record&lt;string, unknown&gt; & {
@@ -917,7 +917,7 @@ const WorkOrderList: React.FC = () => {
         });
         return { data: result.data, success: result.success, total: result.total };
       } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : 'ÍøÂçÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂçºóÖØÊÔ';
+        const errorMessage = err instanceof Error ? err.message : 'ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘ç»œåé‡è¯•';
         setErrorInfo({ message: errorMessage, retry: () => actionRef.current?.reload() });
         return { data: [], success: false, total: 0 };
       }
@@ -931,13 +931,13 @@ const WorkOrderList: React.FC = () => {
       {errorInfo ? (
         &lt;Result
           status="error"
-          title="Êı¾İ¼ÓÔØÊ§°Ü"
+          title="æ•°æ®åŠ è½½å¤±è´¥"
           subTitle={errorInfo.message}
-          extra={&lt;Button type="primary" onClick={errorInfo.retry}&gt;ÖØĞÂ¼ÓÔØ&lt;/Button&gt;}
+          extra={&lt;Button type="primary" onClick={errorInfo.retry}&gt;é‡æ–°åŠ è½½&lt;/Button&gt;}
         /&gt;
       ) : (
         &lt;ProTable&lt;API.WorkOrderItem, API.WorkOrderParams&gt;
-          headerTitle="¹¤µ¥ÁĞ±í"
+          headerTitle="å·¥å•åˆ—è¡¨"
           actionRef={actionRef}
           rowKey="id"
           search={{ labelWidth: 80, defaultCollapsed: false, span: 8 }}
@@ -959,7 +959,7 @@ const WorkOrderList: React.FC = () => {
           tableAlertRender={false}
           locale={{
             emptyText: (
-              &lt;Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="ÔİÎŞ¹¤µ¥Êı¾İ" /&gt;
+              &lt;Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="æš‚æ— å·¥å•æ•°æ®" /&gt;
             ),
           }}
           loading={removing}
@@ -970,14 +970,14 @@ const WorkOrderList: React.FC = () => {
         &lt;FooterToolbar
           extra={
             &lt;span&gt;
-              ÒÑÑ¡Ôñ{' '}
+              å·²é€‰æ‹©{' '}
               &lt;span style={{ fontWeight: 600 }}&gt;{selectedRowKeys.length}&lt;/span&gt;{' '}
-              Ïî¹¤µ¥
+              é¡¹å·¥å•
             &lt;/span&gt;
           }
         &gt;
-          &lt;Button loading={removing} onClick={handleBatchDelete}&gt;ÅúÁ¿É¾³ı&lt;/Button&gt;
-          &lt;Button type="primary" onClick={handleBatchClose}&gt;ÅúÁ¿¹Ø±Õ&lt;/Button&gt;
+          &lt;Button loading={removing} onClick={handleBatchDelete}&gt;æ‰¹é‡åˆ é™¤&lt;/Button&gt;
+          &lt;Button type="primary" onClick={handleBatchClose}&gt;æ‰¹é‡å…³é—­&lt;/Button&gt;
         &lt;/FooterToolbar&gt;
       )}
     &lt;/PageContainer&gt;
@@ -986,7 +986,7 @@ const WorkOrderList: React.FC = () => {
 
 export default WorkOrderList;</pre>
 
-  <h3>8.5 config/routes.ts£¨ĞÂÔöÂ·ÓÉ£©</h3>
+  <h3>8.5 config/routes.tsï¼ˆæ–°å¢è·¯ç”±ï¼‰</h3>
   <pre>
 {
   name: 'workorder',
@@ -997,20 +997,20 @@ export default WorkOrderList;</pre>
 </div>
 
 <div class="section">
-  <h2>¾Å¡¢¹¦ÄÜ¸²¸Ç×Ü½á</h2>
+  <h2>ä¹ã€åŠŸèƒ½è¦†ç›–æ€»ç»“</h2>
   <table>
-    <tr><th>ĞèÇó</th><th>ÊµÏÖÇé¿ö</th></tr>
-    <tr><td>¶àÌõ¼şÉ¸Ñ¡</td><td>×´Ì¬ÏÂÀ­ + ÓÅÏÈ¼¶ÏÂÀ­ + ±êÌâ¹Ø¼ü×Ö + Ê±¼ä·¶Î§£¨RangePicker£©</td></tr>
-    <tr><td>·ÖÒ³</td><td>ProTable ÄÚÖÃ·ÖÒ³£¬Ä¬ÈÏ 10 Ìõ/Ò³£¬Ö§³Ö 10/20/50/100£¬showTotal</td></tr>
-    <tr><td>ÅÅĞò</td><td>6 ÁĞÖ§³ÖÅÅĞò£º×´Ì¬¡¢ÓÅÏÈ¼¶¡¢´´½¨ÈË¡¢´¦ÀíÈË¡¢´´½¨Ê±¼ä¡¢¸üĞÂÊ±¼ä</td></tr>
-    <tr><td>ÅúÁ¿²Ù×÷ + ¶ş´ÎÈ·ÈÏ</td><td>FooterToolbar£ºÅúÁ¿É¾³ı + ÅúÁ¿¹Ø±Õ£¬¾ù Modal.confirm È·ÈÏ</td></tr>
-    <tr><td>µ¥Ìõ²Ù×÷ + ¶ş´ÎÈ·ÈÏ</td><td>¸ù¾İ×´Ì¬¶¯Ì¬ÏÔÊ¾½Óµ¥/½â¾ö/¹Ø±Õ/ÖØ¿ª/É¾³ı£¬¾ù Modal.confirm È·ÈÏ</td></tr>
-    <tr><td>Loading Ì¬</td><td>ProTable request ×Ô¶¯ loading + ²Ù×÷°´Å¥ loading ÊôĞÔ</td></tr>
-    <tr><td>¿ÕÌ¬</td><td>×Ô¶¨Òå Empty ×é¼ş£º"ÔİÎŞ¹¤µ¥Êı¾İ"</td></tr>
-    <tr><td>´íÎóÌ¬</td><td>²¶»ñÒì³£ ¡ú Result error Õ¹Ê¾ + "ÖØĞÂ¼ÓÔØ"°´Å¥</td></tr>
-    <tr><td>ÀàĞÍÍêÕû£¬½û any</td><td>È«²¿Ê¹ÓÃ¾ßÌåÀàĞÍ¶¨Òå£¬grep ÑéÖ¤Áã any</td></tr>
-    <tr><td>ÑùÊ½¸´ÓÃÖ÷Ìâ±äÁ¿</td><td>Ê¹ÓÃ antd Tag Ô¤ÉèÉ« + antd Button/Modal/Empty/Result ×é¼ş</td></tr>
-    <tr><td>Î´ÒıÈëĞÂ×é¼ş¿â</td><td>½öÊ¹ÓÃÏîÄ¿ÒÑ°²×°µÄ antd + pro-components</td></tr>
+    <tr><th>éœ€æ±‚</th><th>å®ç°æƒ…å†µ</th></tr>
+    <tr><td>å¤šæ¡ä»¶ç­›é€‰</td><td>çŠ¶æ€ä¸‹æ‹‰ + ä¼˜å…ˆçº§ä¸‹æ‹‰ + æ ‡é¢˜å…³é”®å­— + æ—¶é—´èŒƒå›´ï¼ˆRangePickerï¼‰</td></tr>
+    <tr><td>åˆ†é¡µ</td><td>ProTable å†…ç½®åˆ†é¡µï¼Œé»˜è®¤ 10 æ¡/é¡µï¼Œæ”¯æŒ 10/20/50/100ï¼ŒshowTotal</td></tr>
+    <tr><td>æ’åº</td><td>6 åˆ—æ”¯æŒæ’åºï¼šçŠ¶æ€ã€ä¼˜å…ˆçº§ã€åˆ›å»ºäººã€å¤„ç†äººã€åˆ›å»ºæ—¶é—´ã€æ›´æ–°æ—¶é—´</td></tr>
+    <tr><td>æ‰¹é‡æ“ä½œ + äºŒæ¬¡ç¡®è®¤</td><td>FooterToolbarï¼šæ‰¹é‡åˆ é™¤ + æ‰¹é‡å…³é—­ï¼Œå‡ Modal.confirm ç¡®è®¤</td></tr>
+    <tr><td>å•æ¡æ“ä½œ + äºŒæ¬¡ç¡®è®¤</td><td>æ ¹æ®çŠ¶æ€åŠ¨æ€æ˜¾ç¤ºæ¥å•/è§£å†³/å…³é—­/é‡å¼€/åˆ é™¤ï¼Œå‡ Modal.confirm ç¡®è®¤</td></tr>
+    <tr><td>Loading æ€</td><td>ProTable request è‡ªåŠ¨ loading + æ“ä½œæŒ‰é’® loading å±æ€§</td></tr>
+    <tr><td>ç©ºæ€</td><td>è‡ªå®šä¹‰ Empty ç»„ä»¶ï¼š"æš‚æ— å·¥å•æ•°æ®"</td></tr>
+    <tr><td>é”™è¯¯æ€</td><td>æ•è·å¼‚å¸¸ â†’ Result error å±•ç¤º + "é‡æ–°åŠ è½½"æŒ‰é’®</td></tr>
+    <tr><td>ç±»å‹å®Œæ•´ï¼Œç¦ any</td><td>å…¨éƒ¨ä½¿ç”¨å…·ä½“ç±»å‹å®šä¹‰ï¼Œgrep éªŒè¯é›¶ any</td></tr>
+    <tr><td>æ ·å¼å¤ç”¨ä¸»é¢˜å˜é‡</td><td>ä½¿ç”¨ antd Tag é¢„è®¾è‰² + antd Button/Modal/Empty/Result ç»„ä»¶</td></tr>
+    <tr><td>æœªå¼•å…¥æ–°ç»„ä»¶åº“</td><td>ä»…ä½¿ç”¨é¡¹ç›®å·²å®‰è£…çš„ antd + pro-components</td></tr>
   </table>
 </div>
 

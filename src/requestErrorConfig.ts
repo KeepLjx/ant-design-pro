@@ -2,6 +2,7 @@
 import type { RequestConfig } from '@umijs/max';
 import { getIntl } from '@umijs/max';
 import { message, notification } from 'antd';
+import { getMallAuthorization } from '@/services/mall/token';
 
 // 错误处理方案： 错误类型
 enum ErrorShowType {
@@ -93,12 +94,14 @@ export const errorConfig: RequestConfig = {
   // 请求拦截器
   requestInterceptors: [
     (config: RequestOptions) => {
-      // 拦截请求配置，进行个性化处理。
-      // 示例：为请求附加 token（按需启用）
-      // const token = localStorage.getItem('token');
-      // if (token) {
-      //   config.headers = { ...config.headers, Authorization: `Bearer ${token}` };
-      // }
+      // 为 mall 后端接口自动附加 token（C6：token 注入）
+      // mall 后端约定：Authorization: Bearer <token>（tokenHead 含尾随空格）
+      const auth = getMallAuthorization();
+      const url = typeof config.url === 'string' ? config.url : '';
+      const isMallApi = url.startsWith('/admin') || url.startsWith('/product');
+      if (auth && isMallApi) {
+        config.headers = { ...config.headers, Authorization: auth };
+      }
       return config;
     },
   ],

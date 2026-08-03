@@ -20,6 +20,8 @@ import {
   VersionDropdown,
 } from '@/components';
 import { currentUser as queryCurrentUser } from '@/services/ant-design-pro/api';
+import { mallGetAdminInfo } from '@/services/mall/admin';
+import { getMallAuthorization } from '@/services/mall/token';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 
@@ -38,10 +40,24 @@ export async function getInitialState(): Promise<{
 }> {
   const fetchUserInfo = async () => {
     try {
-      const msg = await queryCurrentUser({
-        skipErrorHandler: true,
-      });
-      return msg.data;
+      // 优先走 mall 后端真实用户信息；未持有 mall token 时视为未登录
+      if (getMallAuthorization()) {
+        const msg = await mallGetAdminInfo({
+          skipErrorHandler: true,
+        });
+        const info = msg?.data;
+        if (info?.username) {
+          return {
+            name: info.username,
+            avatar: info.icon,
+            userid: String(info.username),
+            access: info.roles?.[0] ?? 'admin',
+          } as API.CurrentUser;
+        }
+      } else {
+        const legacy = await queryCurrentUser({ skipErrorHandler: true });
+        return legacy.data;
+      }
     } catch (_error) {
       const { pathname, search, hash } = history.location;
       history.replace(
