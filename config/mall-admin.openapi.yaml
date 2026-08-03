@@ -1,0 +1,452 @@
+openapi: 3.0.0
+info:
+  title: mall-admin API
+  description: |
+    由 mall 后端 UmsAdminController（登录）与 PmsProductController（商品分页）手工生成的 OpenAPI 3.0 规范。
+    统一响应信封为 CommonResult{code, message, data}，code=200 表示成功。
+    鉴权方式：请求头 Authorization: Bearer <token>（tokenHead + token，由 /admin/login 返回）。
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: mall 后端本地服务
+  - url: http://localhost:8000
+    description: ant-design-pro dev server（经 proxy 转发）
+tags:
+  - name: UmsAdminController
+    description: 后台用户登录 / 用户管理
+  - name: PmsProductController
+    description: 商品管理（分页列表）
+paths:
+  /admin/login:
+    post:
+      tags: [UmsAdminController]
+      summary: 登录以后返回 token
+      operationId: adminLogin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UmsAdminLoginParam'
+      responses:
+        '200':
+          description: 登录结果（code=200 成功；code=404 用户名或密码错误；code=500 密码不正确）
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/LoginToken'
+  /admin/register:
+    post:
+      tags: [UmsAdminController]
+      summary: 注册用户
+      operationId: adminRegister
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UmsAdminParam'
+      responses:
+        '200':
+          description: 注册结果
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/UmsAdmin'
+  /admin/info:
+    get:
+      tags: [UmsAdminController]
+      summary: 获取当前登录用户信息
+      operationId: adminInfo
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: 当前登录用户信息（未登录返回 code=401）
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/AdminInfo'
+  /admin/logout:
+    post:
+      tags: [UmsAdminController]
+      summary: 登出功能
+      operationId: adminLogout
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: 登出结果
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+  /admin/list:
+    get:
+      tags: [UmsAdminController]
+      summary: 根据用户名或姓名分页获取用户列表
+      operationId: adminList
+      parameters:
+        - name: keyword
+          in: query
+          schema: { type: string }
+        - name: pageSize
+          in: query
+          schema: { type: integer, format: int32, default: 5 }
+        - name: pageNum
+          in: query
+          schema: { type: integer, format: int32, default: 1 }
+      responses:
+        '200':
+          description: 用户分页列表
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/UmsAdmin'
+  /product/list:
+    get:
+      tags: [PmsProductController]
+      summary: 根据商品名称或货号模糊查询商品分页列表
+      operationId: queryProductList
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: keyword
+          in: query
+          schema: { type: string }
+        - name: pageNum
+          in: query
+          schema: { type: integer, format: int32, default: 1 }
+        - name: pageSize
+          in: query
+          schema: { type: integer, format: int32, default: 5 }
+        - name: publishStatus
+          in: query
+          schema: { type: integer, format: int32 }
+        - name: verifyStatus
+          in: query
+          schema: { type: integer, format: int32 }
+        - name: productSn
+          in: query
+          schema: { type: string }
+        - name: productCategoryId
+          in: query
+          schema: { type: integer, format: int64 }
+        - name: brandId
+          in: query
+          schema: { type: integer, format: int64 }
+      responses:
+        '200':
+          description: 商品分页列表（未登录返回 code=401）
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/CommonPagePmsProduct'
+  /product/simpleList:
+    get:
+      tags: [PmsProductController]
+      summary: 获取全部商品列表（不分页）
+      operationId: querySimpleProductList
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: 全部商品列表
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/PmsProduct'
+  /product/create:
+    post:
+      tags: [PmsProductController]
+      summary: 创建商品
+      operationId: createProduct
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PmsProduct'
+      responses:
+        '200':
+          description: 创建结果
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/PmsProduct'
+  /product/update/{id}:
+    post:
+      tags: [PmsProductController]
+      summary: 更新商品
+      operationId: updateProduct
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, format: int64 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PmsProduct'
+      responses:
+        '200':
+          description: 更新结果
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/PmsProduct'
+  /product/delete/{id}:
+    post:
+      tags: [PmsProductController]
+      summary: 批量修改删除状态
+      operationId: updateDeleteStatus
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: ids
+          in: query
+          schema:
+            type: array
+            items: { type: integer, format: int64 }
+      responses:
+        '200':
+          description: 删除结果
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/CommonResult'
+                  - type: object
+                    properties:
+                      data:
+                        type: integer
+                        format: int32
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 请求头 Authorization: Bearer <token>，token 由 /admin/login 返回（tokenHead + token）
+  schemas:
+    CommonResult:
+      type: object
+      description: 统一响应信封。code=200 成功；401 未登录；404 参数校验失败；500 业务/系统失败
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+        message:
+          type: string
+          example: 操作成功
+        data:
+          nullable: true
+          description: 业务数据（失败时为 null 或错误描述）
+    CommonPage:
+      type: object
+      description: 后端分页信封（pageNum/pageSize/totalPage/total/list）
+      properties:
+        pageNum:
+          type: integer
+          format: int32
+          example: 1
+        pageSize:
+          type: integer
+          format: int32
+          example: 5
+        totalPage:
+          type: integer
+          format: int32
+          example: 10
+        total:
+          type: integer
+          format: int64
+          example: 50
+        list:
+          type: array
+          items:
+            type: object
+    CommonPagePmsProduct:
+      allOf:
+        - $ref: '#/components/schemas/CommonPage'
+        - type: object
+          properties:
+            list:
+              type: array
+              items:
+                $ref: '#/components/schemas/PmsProduct'
+    LoginToken:
+      type: object
+      description: 登录成功后返回的 token（tokenHead 为 Authorization 头前缀，通常为 "Bearer "）
+      properties:
+        token:
+          type: string
+        tokenHead:
+          type: string
+          example: Bearer
+    AdminInfo:
+      type: object
+      description: /admin/info 返回的当前用户信息
+      properties:
+        username:
+          type: string
+        menus:
+          type: array
+          items:
+            type: string
+        icon:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+    UmsAdmin:
+      type: object
+      properties:
+        id: { type: integer, format: int64 }
+        username: { type: string }
+        password: { type: string, description: BCrypt 密文，前端不应使用 }
+        icon: { type: string }
+        email: { type: string }
+        nickName: { type: string }
+        note: { type: string }
+        createTime: { type: string, format: date-time }
+        loginTime: { type: string, format: date-time }
+        status: { type: integer, format: int32, description: 0 禁用 1 启用 }
+    UmsAdminLoginParam:
+      type: object
+      required: [username, password]
+      properties:
+        username:
+          type: string
+          example: admin
+        password:
+          type: string
+          example: '123456'
+    UmsAdminParam:
+      type: object
+      required: [username, password]
+      properties:
+        username: { type: string }
+        password: { type: string }
+        icon: { type: string }
+        email: { type: string }
+        nickName: { type: string }
+        note: { type: string }
+        status: { type: integer, format: int32 }
+    PmsProductQueryParam:
+      type: object
+      description: 商品列表查询参数（query 透传）
+      properties:
+        keyword: { type: string }
+        pageNum: { type: integer, format: int32, default: 1 }
+        pageSize: { type: integer, format: int32, default: 5 }
+        publishStatus: { type: integer, format: int32 }
+        verifyStatus: { type: integer, format: int32 }
+        productSn: { type: string }
+        productCategoryId: { type: integer, format: int64 }
+        brandId: { type: integer, format: int64 }
+    PmsProduct:
+      type: object
+      description: |
+        商品主表模型。注意：后端字段名为 recommandStatus（拼写错误，业务语义为「推荐状态」）。
+        id/price 等数值字段：Long 雪花 ID 可能超过 JS Number.MAX_SAFE_INTEGER，BigDecimal 以 JSON number 返回。
+      properties:
+        id: { type: integer, format: int64 }
+        brandId: { type: integer, format: int64 }
+        productCategoryId: { type: integer, format: int64 }
+        feightTemplateId: { type: integer, format: int64 }
+        productAttributeCategoryId: { type: integer, format: int64 }
+        name: { type: string }
+        pic: { type: string }
+        productSn: { type: string }
+        deleteStatus: { type: integer, format: int32 }
+        publishStatus: { type: integer, format: int32 }
+        newStatus: { type: integer, format: int32 }
+        recommandStatus: { type: integer, format: int32, description: 后端拼写错误字段（应为 recommendStatus） }
+        verifyStatus: { type: integer, format: int32 }
+        sort: { type: integer, format: int32 }
+        sale: { type: integer, format: int32 }
+        price: { type: number, format: double, description: BigDecimal，JSON 中为 number }
+        promotionPrice: { type: number, format: double }
+        giftGrowth: { type: integer, format: int32 }
+        giftPoint: { type: integer, format: int32 }
+        usePointLimit: { type: integer, format: int32 }
+        subTitle: { type: string }
+        originalPrice: { type: number, format: double }
+        stock: { type: integer, format: int32 }
+        lowStock: { type: integer, format: int32 }
+        unit: { type: string }
+        weight: { type: number, format: double }
+        previewStatus: { type: integer, format: int32 }
+        serviceIds: { type: string }
+        keywords: { type: string }
+        note: { type: string }
+        albumPics: { type: string }
+        detailTitle: { type: string }
+        promotionStartTime: { type: string, format: date-time }
+        promotionEndTime: { type: string, format: date-time }
+        promotionPerLimit: { type: integer, format: int32 }
+        promotionType: { type: integer, format: int32 }
+        brandName: { type: string }
+        productCategoryName: { type: string }
+        description: { type: string }
+        detailDesc: { type: string }
+        detailHtml: { type: string }
+        detailMobileHtml: { type: string }

@@ -1,9 +1,9 @@
-import { useRef, useState, useCallback } from 'react';
-import { useQueryClient, useMutation } from '@tanstack/react-query';
+import type { ActionType } from '@ant-design/pro-components';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { message } from 'antd';
-import type { ActionType } from '@ant-design/pro-table';
+import { useCallback, useRef, useState } from 'react';
 
-export interface UseProTableOptions<T = any> {
+export interface UseProTableOptions {
   /**
    * React Query cache key, used to invalidate queries after delete
    */
@@ -68,7 +68,7 @@ export interface UseProTableReturn<T = any> {
  * ```
  */
 export function useProTable<T = any>(
-  options?: UseProTableOptions<T>,
+  options?: UseProTableOptions,
 ): UseProTableReturn<T> {
   const actionRef = useRef<ActionType | null>(null);
   const queryClient = useQueryClient();
@@ -81,23 +81,27 @@ export function useProTable<T = any>(
     },
   };
 
-  // Delete mutation (only created if deleteMutationFn is provided)
-  const deleteMutation = options?.deleteMutationFn
-    ? useMutation({
-        mutationFn: options.deleteMutationFn,
-        onSuccess: () => {
-          setSelectedRows([]);
-          actionRef.current?.reloadAndRest?.();
-          if (options.queryKey) {
-            queryClient.invalidateQueries({ queryKey: [options.queryKey] });
-          }
-          messageApi.success(options.deleteSuccessMsg ?? 'É¾³ý³É¹¦');
-        },
-        onError: () => {
-          messageApi.error(options.deleteErrorMsg ?? 'É¾³ýÊ§°Ü£¬ÇëÖØÊÔ');
-        },
-      })
-    : undefined;
+  // Delete mutation (hook must be called unconditionally; mutationFn
+  // throws at runtime if deleteMutationFn was not provided)
+  const deleteMutation = useMutation({
+    mutationFn: async (params: any) => {
+      if (!options?.deleteMutationFn) {
+        throw new Error('deleteMutationFn is not provided');
+      }
+      return options.deleteMutationFn(params);
+    },
+    onSuccess: () => {
+      setSelectedRows([]);
+      actionRef.current?.reloadAndRest?.();
+      if (options?.queryKey) {
+        queryClient.invalidateQueries({ queryKey: [options.queryKey] });
+      }
+      messageApi.success(options?.deleteSuccessMsg ?? 'åˆ é™¤æˆåŠŸ');
+    },
+    onError: () => {
+      messageApi.error(options?.deleteErrorMsg ?? 'åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•');
+    },
+  });
 
   const reload = useCallback(() => {
     actionRef.current?.reload();
@@ -115,8 +119,8 @@ export function useProTable<T = any>(
     selectedRows,
     setSelectedRows,
     rowSelection,
-    deleteMutate: deleteMutation?.mutate,
-    deleteLoading: deleteMutation?.isPending,
+    deleteMutate: deleteMutation.mutate,
+    deleteLoading: deleteMutation.isPending,
     reload,
     reloadAndRest,
   };

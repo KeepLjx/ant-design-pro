@@ -23,8 +23,8 @@ import { Alert, App, Button, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { startTransition, useState } from 'react';
 import { Footer } from '@/components';
-import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { login } from '@/services/mall';
 import Settings from '../../../../config/defaultSettings';
 
 /**
@@ -149,8 +149,11 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (values: API.LoginParams) => {
     try {
-      // 登录
-      const msg = await login({ ...values, type });
+      // 登录（对接 mall 后端 /admin/login，经 adapter 转换为 {status:'ok'|'error',...}）
+      const msg = await login({
+        username: values.username ?? '',
+        password: values.password ?? '',
+      });
       if (msg.status === 'ok') {
         const defaultLoginSuccessMessage = intl.formatMessage({
           id: 'pages.login.success',
@@ -164,7 +167,7 @@ const Login: React.FC = () => {
         return;
       }
       // 如果失败去设置用户错误信息
-      setUserLoginState(msg);
+      setUserLoginState(msg as API.LoginResult);
     } catch {
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',

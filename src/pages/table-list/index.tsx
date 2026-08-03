@@ -11,8 +11,8 @@ import {
 import { FormattedMessage, useIntl } from '@umijs/max';
 import { Button, Drawer, type FormInstance, Input } from 'antd';
 import React, { useCallback, useState } from 'react';
-import { removeRule, rule } from '@/services/ant-design-pro/api';
 import { useProTable } from '@/hooks/useProTable';
+import { removeRule, rule } from '@/services/ant-design-pro/api';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
@@ -22,7 +22,7 @@ const TableList: React.FC = () => {
 
   /**
    * @en-US International configuration
-   * @zh-CN ¹ú¼Ê»¯ÅäÖÃ
+   * @zh-CN å›½é™…åŒ–é…ç½®
    * */
   const intl = useIntl();
 
@@ -88,7 +88,7 @@ const TableList: React.FC = () => {
       renderText: (val: string) =>
         `${val}${intl.formatMessage({
           id: 'pages.searchTable.tenThousand',
-          defaultMessage: ' Íò ',
+          defaultMessage: ' ä¸‡ ',
         })}`,
     },
     {
@@ -214,19 +214,19 @@ const TableList: React.FC = () => {
 
   /**
    *  Delete node
-   * @zh-CN É¾³ý½Úµã
+   * @zh-CN åˆ é™¤èŠ‚ç‚¹
    *
    * @param selectedRows
    */
   const handleRemove = useCallback(
     async (selectedRows: API.RuleListItem[]) => {
       if (!selectedRows?.length) {
-        messageApi.warning('ÇëÑ¡ÔñÉ¾³ýÏî');
+        messageApi.warning('è¯·é€‰æ‹©åˆ é™¤é¡¹');
 
         return;
       }
 
-      await delRun({
+      await delRun?.({
         data: {
           key: selectedRows.map((row) => row.key),
         },
@@ -263,12 +263,10 @@ const TableList: React.FC = () => {
                 id="pages.searchTable.chosen"
                 defaultMessage="Chosen"
               />{' '}
-              <span style={{ fontWeight: 600 }}>
-                {selectedRows.length}
-              </span>{' '}
+              <span style={{ fontWeight: 600 }}>{selectedRows.length}</span>{' '}
               <FormattedMessage
                 id="pages.searchTable.item"
-                defaultMessage="Ïî"
+                defaultMessage="é¡¹"
               />
               &nbsp;&nbsp;
               <span>
@@ -282,7 +280,7 @@ const TableList: React.FC = () => {
                 )}{' '}
                 <FormattedMessage
                   id="pages.searchTable.tenThousand"
-                  defaultMessage="Íò"
+                  defaultMessage="ä¸‡"
                 />
               </span>
             </div>

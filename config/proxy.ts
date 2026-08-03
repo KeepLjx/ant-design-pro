@@ -10,17 +10,55 @@
  * @doc https://umijs.org/docs/guides/proxy
  */
 export default {
-  // 如果需要自定义本地开发服务器  请取消注释按需调整
-  // dev: {
-  //   // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
-  //   '/api/': {
-  //     // 要代理的地址
-  //     target: 'https://preview.pro.ant.design',
-  //     // 配置了这个可以从 http 代理到 https
-  //     // 依赖 origin 的功能可能需要这个，比如 cookie
-  //     changeOrigin: true,
-  //   },
-  // },
+  // 本地开发代理：mall 后端接口（localhost:8080）经 dev server 转发。
+  // 注意：使用精确 API 路径前缀，避免与前端 SPA 路由（如 /admin/sub-page、/product/manage）冲突。
+  dev: {
+    '/admin/login': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/admin/info': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/admin/logout': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/admin/register': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/admin/list': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/list': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/simpleList': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/create': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/update': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/delete': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    // demo 接口（ant-design-pro 模板自带）
+    '/api/': {
+      target: 'https://pro-api.ant-design-demo.workers.dev',
+      changeOrigin: true,
+    },
+  },
   /**
    * @name 详细的代理配置
    * @doc https://github.com/chimurai/http-proxy-middleware

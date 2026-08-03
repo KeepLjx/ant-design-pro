@@ -50,6 +50,22 @@ export default [
     component: './Welcome',
   },
   {
+    path: '/product',
+    name: 'product',
+    icon: 'shoppingCart',
+    routes: [
+      {
+        path: '/product',
+        redirect: '/product/manage',
+      },
+      {
+        path: '/product/manage',
+        name: 'productList',
+        component: './product/list',
+      },
+    ],
+  },
+  {
     path: '/admin',
     name: 'admin',
     icon: 'crown',

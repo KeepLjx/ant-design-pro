@@ -93,12 +93,19 @@ export const errorConfig: RequestConfig = {
   // 请求拦截器
   requestInterceptors: [
     (config: RequestOptions) => {
-      // 拦截请求配置，进行个性化处理。
-      // 示例：为请求附加 token（按需启用）
-      // const token = localStorage.getItem('token');
-      // if (token) {
-      //   config.headers = { ...config.headers, Authorization: `Bearer ${token}` };
-      // }
+      // E1-1-3 token 注入：mall 后端接口（/admin、/product 等）自动携带
+      // Authorization: Bearer <token>（token 由 /admin/login 返回并写入 localStorage）。
+      const url = config.url ?? '';
+      const isMallApi = /^\/(admin|product|brand|pms|oms|sms|cms)\b/.test(url);
+      if (isMallApi && typeof window !== 'undefined') {
+        const token = window.localStorage.getItem('mall_admin_token');
+        if (token) {
+          config.headers = {
+            ...(config.headers as Record<string, string>),
+            Authorization: `Bearer ${token}`,
+          };
+        }
+      }
       return config;
     },
   ],

@@ -19,7 +19,7 @@ import {
   OfflineBanner,
   VersionDropdown,
 } from '@/components';
-import { currentUser as queryCurrentUser } from '@/services/ant-design-pro/api';
+import { getAdminInfo } from '@/services/mall';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 
@@ -38,10 +38,11 @@ export async function getInitialState(): Promise<{
 }> {
   const fetchUserInfo = async () => {
     try {
-      const msg = await queryCurrentUser({
-        skipErrorHandler: true,
-      });
-      return msg.data;
+      // 对接 mall 后端 /admin/info（经 adapter 转换为 ProCurrentUser，结构兼容 API.CurrentUser）
+      const user = await getAdminInfo();
+      if (user) {
+        return user as API.CurrentUser;
+      }
     } catch (_error) {
       const { pathname, search, hash } = history.location;
       history.replace(

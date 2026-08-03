@@ -1,3 +1,4 @@
+import { DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import {
   FooterToolbar,
@@ -5,33 +6,30 @@ import {
   ProTable,
 } from '@ant-design/pro-components';
 import { Button, Modal, Tag } from 'antd';
-import { DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useProTable } from '@/hooks/useProTable';
 import {
   getWorkOrderList,
   removeWorkOrder,
 } from '@/services/ant-design-pro/api';
-import { useProTable } from '@/hooks/useProTable';
 import useStyles from './style.style';
 
-const statusMap: Record<
-  API.WorkOrderStatus,
-  { color: string; label: string }
-> = {
-  pending: { color: 'default', label: '´ı´¦Àí' },
-  processing: { color: 'processing', label: '´¦ÀíÖĞ' },
-  resolved: { color: 'success', label: 'ÒÑ½â¾ö' },
-  closed: { color: 'default', label: 'ÒÑ¹Ø±Õ' },
-};
+const statusMap: Record<API.WorkOrderStatus, { color: string; label: string }> =
+  {
+    pending: { color: 'default', label: 'å¾…å¤„ç†' },
+    processing: { color: 'processing', label: 'å¤„ç†ä¸­' },
+    resolved: { color: 'success', label: 'å·²è§£å†³' },
+    closed: { color: 'default', label: 'å·²å…³é—­' },
+  };
 
 const priorityMap: Record<
   API.WorkOrderPriority,
   { color: string; label: string }
 > = {
-  low: { color: 'green', label: 'µÍ' },
-  medium: { color: 'blue', label: 'ÖĞ' },
-  high: { color: 'orange', label: '¸ß' },
-  urgent: { color: 'red', label: '½ô¼±' },
+  low: { color: 'green', label: 'ä½' },
+  medium: { color: 'blue', label: 'ä¸­' },
+  high: { color: 'orange', label: 'é«˜' },
+  urgent: { color: 'red', label: 'ç´§æ€¥' },
 };
 
 const WorkOrderList: React.FC = () => {
@@ -47,65 +45,65 @@ const WorkOrderList: React.FC = () => {
   } = useProTable<API.WorkOrderListItem>({
     queryKey: 'work-order',
     deleteMutationFn: removeWorkOrder,
-    deleteSuccessMsg: 'É¾³ı³É¹¦',
-    deleteErrorMsg: 'É¾³ıÊ§°Ü£¬ÇëÖØÊÔ',
+    deleteSuccessMsg: 'åˆ é™¤æˆåŠŸ',
+    deleteErrorMsg: 'åˆ é™¤å¤±è´¥ï¼Œè¯·é‡è¯•',
   });
 
   const handleBatchDelete = () => {
     Modal.confirm({
-      title: 'È·ÈÏÅúÁ¿É¾³ı',
+      title: 'ç¡®è®¤æ‰¹é‡åˆ é™¤',
       icon: <ExclamationCircleOutlined />,
-      content: `È·¶¨ÒªÉ¾³ıÑ¡ÖĞµÄ ${selectedRows.length} Ìõ¹¤µ¥Âğ£¿´Ë²Ù×÷²»¿É³·Ïú¡£`,
-      okText: 'È·ÈÏÉ¾³ı',
+      content: `ç¡®å®šè¦åˆ é™¤é€‰ä¸­çš„ ${selectedRows.length} æ¡å·¥å•å—ï¼Ÿæ­¤æ“ä½œä¸å¯æ’¤é”€ã€‚`,
+      okText: 'ç¡®è®¤åˆ é™¤',
       okType: 'danger',
-      cancelText: 'È¡Ïû',
+      cancelText: 'å–æ¶ˆ',
       onOk: () => {
         const ids = selectedRows.map((row) => row.id);
-        doDelete({ ids });
+        doDelete?.({ ids });
       },
     });
   };
 
   const handleSingleDelete = (record: API.WorkOrderListItem) => {
     Modal.confirm({
-      title: 'È·ÈÏÉ¾³ı',
+      title: 'ç¡®è®¤åˆ é™¤',
       icon: <ExclamationCircleOutlined />,
-      content: `È·¶¨ÒªÉ¾³ı¹¤µ¥¡¸${record.title}¡¹Âğ£¿´Ë²Ù×÷²»¿É³·Ïú¡£`,
-      okText: 'È·ÈÏÉ¾³ı',
+      content: `ç¡®å®šè¦åˆ é™¤å·¥å•ã€Œ${record.title}ã€å—ï¼Ÿæ­¤æ“ä½œä¸å¯æ’¤é”€ã€‚`,
+      okText: 'ç¡®è®¤åˆ é™¤',
       okType: 'danger',
-      cancelText: 'È¡Ïû',
+      cancelText: 'å–æ¶ˆ',
       onOk: () => {
-        doDelete({ ids: [record.id] });
+        doDelete?.({ ids: [record.id] });
       },
     });
   };
 
   const columns: ProColumns<API.WorkOrderListItem>[] = [
     {
-      title: '¹¤µ¥ID',
+      title: 'å·¥å•ID',
       dataIndex: 'id',
       width: 120,
       copyable: true,
       ellipsis: true,
     },
     {
-      title: '±êÌâ',
+      title: 'æ ‡é¢˜',
       dataIndex: 'title',
       width: 220,
       ellipsis: true,
       copyable: true,
     },
     {
-      title: '×´Ì¬',
+      title: 'çŠ¶æ€',
       dataIndex: 'status',
       width: 100,
       sorter: true,
       valueType: 'select',
       valueEnum: {
-        pending: { text: '´ı´¦Àí', status: 'Default' },
-        processing: { text: '´¦ÀíÖĞ', status: 'Processing' },
-        resolved: { text: 'ÒÑ½â¾ö', status: 'Success' },
-        closed: { text: 'ÒÑ¹Ø±Õ', status: 'Default' },
+        pending: { text: 'å¾…å¤„ç†', status: 'Default' },
+        processing: { text: 'å¤„ç†ä¸­', status: 'Processing' },
+        resolved: { text: 'å·²è§£å†³', status: 'Success' },
+        closed: { text: 'å·²å…³é—­', status: 'Default' },
       },
       render: (_: React.ReactNode, record: API.WorkOrderListItem) => {
         const config = statusMap[record.status];
@@ -117,16 +115,16 @@ const WorkOrderList: React.FC = () => {
       },
     },
     {
-      title: 'ÓÅÏÈ¼¶',
+      title: 'ä¼˜å…ˆçº§',
       dataIndex: 'priority',
       width: 90,
       sorter: true,
       valueType: 'select',
       valueEnum: {
-        low: { text: 'µÍ' },
-        medium: { text: 'ÖĞ' },
-        high: { text: '¸ß' },
-        urgent: { text: '½ô¼±' },
+        low: { text: 'ä½' },
+        medium: { text: 'ä¸­' },
+        high: { text: 'é«˜' },
+        urgent: { text: 'ç´§æ€¥' },
       },
       render: (_: React.ReactNode, record: API.WorkOrderListItem) => {
         const config = priorityMap[record.priority];
@@ -138,12 +136,12 @@ const WorkOrderList: React.FC = () => {
       },
     },
     {
-      title: '´´½¨ÈÕÆÚ',
+      title: 'åˆ›å»ºæ—¥æœŸ',
       dataIndex: 'dateRange',
       valueType: 'dateRange',
       hideInTable: true,
       fieldProps: {
-        placeholder: ['¿ªÊ¼ÈÕÆÚ', '½áÊøÈÕÆÚ'],
+        placeholder: ['å¼€å§‹æ—¥æœŸ', 'ç»“æŸæ—¥æœŸ'],
       },
       search: {
         transform: (value: [string, string]) => ({
@@ -153,33 +151,33 @@ const WorkOrderList: React.FC = () => {
       },
     },
     {
-      title: '·ÖÀà',
+      title: 'åˆ†ç±»',
       dataIndex: 'category',
       width: 120,
       sorter: true,
     },
     {
-      title: '¸ºÔğÈË',
+      title: 'è´Ÿè´£äºº',
       dataIndex: 'assignee',
       width: 100,
       sorter: true,
       ellipsis: true,
     },
     {
-      title: '±¨¸æÈË',
+      title: 'æŠ¥å‘Šäºº',
       dataIndex: 'reporter',
       width: 100,
       ellipsis: true,
     },
     {
-      title: '´´½¨Ê±¼ä',
+      title: 'åˆ›å»ºæ—¶é—´',
       dataIndex: 'createdAt',
       width: 170,
       sorter: true,
       valueType: 'dateTime',
     },
     {
-      title: '¸üĞÂÊ±¼ä',
+      title: 'æ›´æ–°æ—¶é—´',
       dataIndex: 'updatedAt',
       width: 170,
       sorter: true,
@@ -187,7 +185,7 @@ const WorkOrderList: React.FC = () => {
       search: false,
     },
     {
-      title: '²Ù×÷',
+      title: 'æ“ä½œ',
       dataIndex: 'option',
       valueType: 'option',
       width: 120,
@@ -200,7 +198,7 @@ const WorkOrderList: React.FC = () => {
           icon={<DeleteOutlined />}
           onClick={() => handleSingleDelete(record)}
         >
-          É¾³ı
+          åˆ é™¤
         </Button>,
       ],
     },
@@ -210,7 +208,7 @@ const WorkOrderList: React.FC = () => {
     <PageContainer>
       {contextHolder}
       <ProTable<API.WorkOrderListItem, API.WorkOrderListParams>
-        headerTitle="¹¤µ¥ÁĞ±í"
+        headerTitle="å·¥å•åˆ—è¡¨"
         actionRef={actionRef}
         rowKey="id"
         className={styles.container}
@@ -233,7 +231,9 @@ const WorkOrderList: React.FC = () => {
             pageSize: params.pageSize,
             status: params.status as API.WorkOrderStatus | undefined,
             priority: params.priority as API.WorkOrderPriority | undefined,
-            keyword: params.title as string | undefined,
+            keyword: (params as typeof params & { title?: string }).title as
+              | string
+              | undefined,
             startTime: params.startTime,
             endTime: params.endTime,
             sortField,
@@ -260,9 +260,7 @@ const WorkOrderList: React.FC = () => {
         <FooterToolbar
           extra={
             <div className={styles.batchInfo}>
-              ÒÑÑ¡Ôñ{' '}
-              <strong>{selectedRows.length}</strong>{' '}
-              Ïî
+              å·²é€‰æ‹© <strong>{selectedRows.length}</strong> é¡¹
             </div>
           }
         >
@@ -272,7 +270,7 @@ const WorkOrderList: React.FC = () => {
             loading={deleteLoading}
             onClick={handleBatchDelete}
           >
-            ÅúÁ¿É¾³ı
+            æ‰¹é‡åˆ é™¤
           </Button>
         </FooterToolbar>
       )}
