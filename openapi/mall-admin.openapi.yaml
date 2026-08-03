@@ -1,0 +1,423 @@
+openapi: 3.0.3
+info:
+  title: mall-admin OpenAPI（UmsAdmin 登录 + PmsProduct 商品分页）
+  description: |
+    依据 mall-admin 后端源码（UmsAdminController /admin/login、/admin/info；
+    PmsProductController /product/list）并结合运行时 /v3/api-docs/default 真实规格生成的
+    OpenAPI 3.0 规格，供 ant-design-pro 前端生成 TS 类型与 service 使用。
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: 本地 mall-admin 服务
+tags:
+  - name: UmsAdminController
+    description: 后台用户管理
+  - name: PmsProductController
+    description: 商品管理
+paths:
+  /admin/login:
+    post:
+      tags:
+        - UmsAdminController
+      summary: 登录以后返回token
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UmsAdminLoginParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResultLoginToken'
+  /admin/info:
+    get:
+      tags:
+        - UmsAdminController
+      summary: 获取当前登录用户信息
+      operationId: getAdminInfo
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResultAdminInfo'
+  /product/list:
+    get:
+      tags:
+        - PmsProductController
+      summary: 查询商品
+      operationId: getProductList
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: publishStatus
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+          description: 上架状态：0->下架；1->上架
+        - name: verifyStatus
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+          description: 审核状态：0->未审核；1->审核通过
+        - name: keyword
+          in: query
+          required: false
+          schema:
+            type: string
+          description: 商品名称模糊关键字
+        - name: productSn
+          in: query
+          required: false
+          schema:
+            type: string
+          description: 商品货号
+        - name: productCategoryId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+          description: 商品分类编号
+        - name: brandId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+          description: 商品品牌编号
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 5
+        - name: pageNum
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResultCommonPagePmsProduct'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 需携带 Authorization: Bearer <token>（tokenHead 与 token 由 /admin/login 返回）
+  schemas:
+    CommonResult:
+      type: object
+      description: 通用返回结果封装类
+      properties:
+        code:
+          type: integer
+          format: int64
+          description: 状态码，200 表示成功
+        message:
+          type: string
+          description: 提示信息
+        data:
+          description: 数据封装
+    UmsAdminLoginParam:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          minLength: 1
+          title: 用户名
+        password:
+          type: string
+          minLength: 1
+          title: 密码
+    LoginToken:
+      type: object
+      description: 登录成功后返回的 token 信息
+      properties:
+        tokenHead:
+          type: string
+          description: JWT token 前缀，如 "Bearer "
+        token:
+          type: string
+          description: JWT token
+    CommonResultLoginToken:
+      allOf:
+        - $ref: '#/components/schemas/CommonResult'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/LoginToken'
+    MenuNode:
+      type: object
+      description: 后台菜单节点
+      properties:
+        id:
+          type: integer
+          format: int64
+        parentId:
+          type: integer
+          format: int64
+        createTime:
+          type: string
+          format: date-time
+        title:
+          type: string
+        level:
+          type: integer
+          format: int32
+        sort:
+          type: integer
+          format: int32
+        name:
+          type: string
+        icon:
+          type: string
+        hidden:
+          type: integer
+          format: int32
+    AdminInfo:
+      type: object
+      description: 当前登录用户信息
+      properties:
+        username:
+          type: string
+        menus:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuNode'
+        icon:
+          type: string
+          description: 头像地址
+        roles:
+          type: array
+          items:
+            type: string
+          description: 角色名称列表
+    CommonResultAdminInfo:
+      allOf:
+        - $ref: '#/components/schemas/CommonResult'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/AdminInfo'
+    PmsProductQueryParam:
+      type: object
+      properties:
+        publishStatus:
+          type: integer
+          format: int32
+          title: 上架状态
+        verifyStatus:
+          type: integer
+          format: int32
+          title: 审核状态
+        keyword:
+          type: string
+          title: 商品名称模糊关键字
+        productSn:
+          type: string
+          title: 商品货号
+        productCategoryId:
+          type: integer
+          format: int64
+          title: 商品分类编号
+        brandId:
+          type: integer
+          format: int64
+          title: 商品品牌编号
+    PmsProduct:
+      type: object
+      description: 商品信息
+      properties:
+        id:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        productCategoryId:
+          type: integer
+          format: int64
+        feightTemplateId:
+          type: integer
+          format: int64
+        productAttributeCategoryId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        pic:
+          type: string
+        productSn:
+          type: string
+          title: 货号
+        deleteStatus:
+          type: integer
+          format: int32
+          title: 删除状态：0->未删除；1->已删除
+        publishStatus:
+          type: integer
+          format: int32
+          title: 上架状态：0->下架；1->上架
+        newStatus:
+          type: integer
+          format: int32
+          title: 新品状态:0->不是新品；1->新品
+        recommandStatus:
+          type: integer
+          format: int32
+          title: 推荐状态；0->不推荐；1->推荐
+        verifyStatus:
+          type: integer
+          format: int32
+          title: 审核状态：0->未审核；1->审核通过
+        sort:
+          type: integer
+          format: int32
+          title: 排序
+        sale:
+          type: integer
+          format: int32
+          title: 销量
+        price:
+          type: number
+        promotionPrice:
+          type: number
+          title: 促销价格
+        giftGrowth:
+          type: integer
+          format: int32
+          title: 赠送的成长值
+        giftPoint:
+          type: integer
+          format: int32
+          title: 赠送的积分
+        usePointLimit:
+          type: integer
+          format: int32
+          title: 限制使用的积分数
+        subTitle:
+          type: string
+          title: 副标题
+        originalPrice:
+          type: number
+          title: 市场价
+        stock:
+          type: integer
+          format: int32
+          title: 库存
+        lowStock:
+          type: integer
+          format: int32
+          title: 库存预警值
+        unit:
+          type: string
+          title: 单位
+        weight:
+          type: number
+          title: 商品重量，默认为克
+        previewStatus:
+          type: integer
+          format: int32
+          title: 是否为预告商品：0->不是；1->是
+        serviceIds:
+          type: string
+          title: 以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮
+        keywords:
+          type: string
+        note:
+          type: string
+        albumPics:
+          type: string
+          title: 画册图片，连产品图片限制为5张，以逗号分割
+        detailTitle:
+          type: string
+        promotionStartTime:
+          type: string
+          format: date-time
+          title: 促销开始时间
+        promotionEndTime:
+          type: string
+          format: date-time
+          title: 促销结束时间
+        promotionPerLimit:
+          type: integer
+          format: int32
+          title: 活动限购数量
+        promotionType:
+          type: integer
+          format: int32
+          title: 促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
+        brandName:
+          type: string
+          title: 品牌名称
+        productCategoryName:
+          type: string
+          title: 商品分类名称
+        description:
+          type: string
+          title: 商品描述
+        detailDesc:
+          type: string
+        detailHtml:
+          type: string
+          title: 产品详情网页内容
+        detailMobileHtml:
+          type: string
+          title: 移动端网页详情
+    CommonPagePmsProduct:
+      type: object
+      description: 通用分页数据封装类
+      properties:
+        pageNum:
+          type: integer
+          format: int32
+          description: 当前页码
+        pageSize:
+          type: integer
+          format: int32
+          description: 每页数量
+        totalPage:
+          type: integer
+          format: int32
+          description: 总页数
+        total:
+          type: integer
+          format: int64
+          description: 总条数
+        list:
+          type: array
+          description: 分页数据
+          items:
+            $ref: '#/components/schemas/PmsProduct'
+    CommonResultCommonPagePmsProduct:
+      allOf:
+        - $ref: '#/components/schemas/CommonResult'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/CommonPagePmsProduct'

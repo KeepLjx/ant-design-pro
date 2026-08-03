@@ -51,4 +51,8 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
   'menu.chatbot': 'AI 助手',
+  'menu.product-list': '商品列表（mall）',
+  'menu.coupon': '优惠券',
+  'menu.coupon.management': '优惠券管理',
+  'menu.coupon.my-coupons': '我的优惠券',
 };

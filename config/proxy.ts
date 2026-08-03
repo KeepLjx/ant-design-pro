@@ -22,6 +22,19 @@ export default {
   //   },
   // },
   /**
+   * @name dev 代理：mall-admin 后端（/admin/login、/admin/info、/product/list）
+   */
+  dev: {
+    '/admin/': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/product/': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+  },
+  /**
    * @name 详细的代理配置
    * @doc https://github.com/chimurai/http-proxy-middleware
    */

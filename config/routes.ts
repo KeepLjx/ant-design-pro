@@ -287,6 +287,35 @@ export default [
     component: './chatbot',
   },
   {
+    path: '/mall/product-list',
+    name: 'product-list',
+    icon: 'table',
+    component: './mall/product-list',
+  },
+  {
+    path: '/coupon',
+    name: 'coupon',
+    icon: 'gift',
+    routes: [
+      {
+        path: '/coupon',
+        redirect: '/coupon/management',
+      },
+      {
+        name: 'management',
+        icon: 'setting',
+        path: '/coupon/management',
+        component: './coupon/management',
+      },
+      {
+        name: 'my-coupons',
+        icon: 'wallet',
+        path: '/coupon/my',
+        component: './coupon/my',
+      },
+    ],
+  },
+  {
     path: '/',
     redirect: '/dashboard/analysis',
   },
